@@ -48,7 +48,7 @@ public class Holem : MonoBehaviour
             transform.LookAt(Zentr);
         }
     }
-
+/*
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -59,7 +59,7 @@ public class Holem : MonoBehaviour
             health -= 5;
         }
     }
-
+*/
     private void Death()
     {
         Destroy(gameObject);

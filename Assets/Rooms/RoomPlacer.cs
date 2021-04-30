@@ -11,6 +11,8 @@ public class RoomPlacer : MonoBehaviour {
 
     public Room[,] spawnedRooms;
 
+    public GameObject PlayerPrefab;
+
     private void Start()
     {
         SetRooms();
@@ -19,6 +21,7 @@ public class RoomPlacer : MonoBehaviour {
     public void SetRooms()
     {
         Instantiate(StartingRoom, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(PlayerPrefab, new Vector3(0f, 1.6f, 0f), Quaternion.identity);
         layer = 1;
         spawnedRooms = new Room[15, 15];
         spawnedRooms[5, 5] = StartingRoom;
@@ -51,7 +54,7 @@ public class RoomPlacer : MonoBehaviour {
 
         Room newRoom = Instantiate(GetRandomChunk());
 
-        int limit = 500;
+        int limit = 700;
         while (limit-- > 0)
         {
             Vector2Int position = vacantPlaces.ElementAt(UnityEngine.Random.Range(0, vacantPlaces.Count));

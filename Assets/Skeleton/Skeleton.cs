@@ -45,7 +45,7 @@ public class Skeleton : MonoBehaviour
             transform.LookAt(Zentr);
         }
     }
-
+/*
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -56,7 +56,7 @@ public class Skeleton : MonoBehaviour
             health -= 5;
         }
     }
-
+*/
     private void Death()
     {
         Destroy(gameObject);
