@@ -54,7 +54,7 @@ public class RoomPlacer : MonoBehaviour {
 
         Room newRoom = Instantiate(GetRandomChunk());
 
-        int limit = 700;
+        int limit = 1000;
         while (limit-- > 0)
         {
             Vector2Int position = vacantPlaces.ElementAt(UnityEngine.Random.Range(0, vacantPlaces.Count));

@@ -23,15 +23,5 @@ public class CameraFollow : MonoBehaviour {
         {
             transform.position = Vector3.SmoothDamp(transform.position, Target.transform.position + Offset, ref Velocity, 0.18f, 40);
         }
-        
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            Offset = new Vector3(2f, 0.5f, -4f);
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        } else if (Input.GetKeyUp(KeyCode.E))
-        {
-            Offset = new Vector3(0f, 12f, -6f);
-            transform.rotation = Quaternion.Euler(60f, 0f, 0f);
-        }
     }
 }

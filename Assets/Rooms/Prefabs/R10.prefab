@@ -147,10 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7665b015500a146975dca448a9371e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorU: {fileID: 8204669362151642728}
-  DoorR: {fileID: 5894607919650469401}
-  DoorD: {fileID: 3484002333676201301}
-  DoorL: {fileID: 6296681014537050152}
+  DoorU: {fileID: 6296681014537050152}
+  DoorR: {fileID: 3484002333676201301}
+  DoorD: {fileID: 8204669362151642728}
+  DoorL: {fileID: 5894607919650469401}
   BlockMeshes:
   - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
@@ -187,7 +187,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7158582020215204711, guid: 68453110ad8c9a540a5da4adc1d94a35, type: 3}
       propertyPath: m_Name
-      value: Rail_door
+      value: doorD
       objectReference: {fileID: 0}
     - target: {fileID: 7499536575334494685, guid: 68453110ad8c9a540a5da4adc1d94a35, type: 3}
       propertyPath: m_RootOrder
@@ -378,7 +378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7158582020215204711, guid: 68453110ad8c9a540a5da4adc1d94a35, type: 3}
       propertyPath: m_Name
-      value: Rail_door (1)
+      value: doorL
       objectReference: {fileID: 0}
     - target: {fileID: 7499536575334494685, guid: 68453110ad8c9a540a5da4adc1d94a35, type: 3}
       propertyPath: m_RootOrder
@@ -445,7 +445,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7158582020215204711, guid: 68453110ad8c9a540a5da4adc1d94a35, type: 3}
       propertyPath: m_Name
-      value: Rail_door (3)
+      value: doorU
       objectReference: {fileID: 0}
     - target: {fileID: 7499536575334494685, guid: 68453110ad8c9a540a5da4adc1d94a35, type: 3}
       propertyPath: m_RootOrder
@@ -574,7 +574,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7158582020215204711, guid: 68453110ad8c9a540a5da4adc1d94a35, type: 3}
       propertyPath: m_Name
-      value: Rail_door (2)
+      value: doorR
       objectReference: {fileID: 0}
     - target: {fileID: 7499536575334494685, guid: 68453110ad8c9a540a5da4adc1d94a35, type: 3}
       propertyPath: m_RootOrder
