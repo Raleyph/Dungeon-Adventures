@@ -62,6 +62,7 @@
      <Compile Include="Assets\Skeleton\Skeleton.cs" />
      <Compile Include="Assets\Menu.cs" />
      <Compile Include="Assets\LayerConroller.cs" />
+     <Compile Include="Assets\Rooms\DeleteTrigger.cs" />
      <Compile Include="Assets\Holem\Holem.cs" />
      <Compile Include="Assets\TeleportTrigger.cs" />
  <Reference Include="UnityEngine">
@@ -632,31 +633,31 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Makabos Technologies/Game Development/Dungeon/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Raleyph Technologies/Game Development/Dungeon/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
