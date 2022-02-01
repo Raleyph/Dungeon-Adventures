@@ -8,6 +8,10 @@ TagManager:
   - Default Sword
   - Ground
   - PopUpMenu
+  - SpawnPoint
+  - Minecart
+  - Door
+  - Room Name
   layers:
   - Default
   - TransparentFX
@@ -19,7 +23,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Post
   - 
   - 
   - 

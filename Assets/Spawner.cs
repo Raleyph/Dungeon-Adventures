@@ -1,33 +1,23 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour {
     public GameObject[] Enemy;
-    public Transform[] SpawnPos;
+    public int SpawnerType;
 
-    private void OnTriggerStay(Collider other)
-    {
-        StartCoroutine(Spawn());
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        StopCoroutine(Spawn());
-    }
-
-    void Repeat()
-    {
-        StartCoroutine(Spawn());
-    }
-
-    IEnumerator Spawn()
-    {
-        yield return new WaitForSeconds(15f);
-        Instantiate(Enemy[Random.Range(0, Enemy.Length)], SpawnPos[Random.Range(0, SpawnPos.Length)].position, Quaternion.identity);
-        yield return new WaitForSeconds(15f);
-        Repeat();
+    IEnumerator Spawn() {
+        switch (SpawnerType) {
+            case 1:
+                Instantiate(Enemy[0]);
+                break;
+            case 2:
+                Instantiate(Enemy[1]);
+                break;
+            case 3:
+                Instantiate(Enemy[2]);
+                break;
+        }
+        yield return new WaitForSeconds(1f);
     }
 }
