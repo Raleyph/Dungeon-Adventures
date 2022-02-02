@@ -112,6 +112,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 5308c1a4146de964a92270a29f38815e, type: 2}
   - {fileID: 7400000, guid: d811300427d88ac4a9e08214c9edf49c, type: 2}
+  - {fileID: 7400000, guid: 251117bdbe2110a44adde096626ea900, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -128,12 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c461c3fbbe754a44bc659b5eb9916b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyObject: {fileID: 1103809398145859996}
   Zentr: {x: 0, y: 0, z: 0}
-  Sam: {fileID: 0}
   EnemySpeed: 3
   SpeedBoost: 3
   health: 10
+  isActive: 0
 --- !u!54 &4674442283992045271
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -16,7 +16,6 @@ public class Menu : MonoBehaviour {
     private void Start() {
         Cursor.visible = true;
         Time.timeScale = 0;
-        Overlay.SetActive(false);
     }
 
     private void Update() {
@@ -35,7 +34,6 @@ public class Menu : MonoBehaviour {
         MainMenu.SetActive(false);
         Overlay.SetActive(true);
         isStarted = true;
-
         Camera.transform.rotation = Quaternion.Euler(60f, 0f, 0f);
     }
 
@@ -58,6 +56,15 @@ public class Menu : MonoBehaviour {
         Cursor.visible = true;
         Time.timeScale = 0;
         isPaused = true;
+    }
+
+    public void ToMenu() {
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        isStarted = false;
+        MainMenu.SetActive(true);
+        PauseMenu.SetActive(false);
+        Overlay.SetActive(false);
     }
     
     public void DoNewLayer() {

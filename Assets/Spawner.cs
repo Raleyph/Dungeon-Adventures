@@ -6,6 +6,10 @@ public class Spawner : MonoBehaviour {
     public GameObject[] Enemy;
     public int SpawnerType;
 
+    public void DoSpawn() {
+        StartCoroutine(Spawn());
+    }
+
     IEnumerator Spawn() {
         switch (SpawnerType) {
             case 1:
@@ -15,9 +19,9 @@ public class Spawner : MonoBehaviour {
                 Instantiate(Enemy[1]);
                 break;
             case 3:
-                Instantiate(Enemy[2]);
+                Instantiate(Enemy[Random.Range(1, 2)]);
                 break;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
     }
 }
