@@ -233,7 +233,7 @@ MonoBehaviour:
   - {fileID: 432943754091305116}
   - {fileID: 5228328613952517706}
   - {fileID: 2752392207510913017}
-  NameRoom: Storehouse
+  NameRoom: Quarry
 --- !u!65 &-1540648796487580649
 BoxCollider:
   m_ObjectHideFlags: 0

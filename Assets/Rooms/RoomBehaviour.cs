@@ -23,8 +23,10 @@ public class RoomBehaviour : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player") {
-            RoomName.GetComponent<Text>().text = NameRoom;
+        if (Time.timeScale == 1) {
+            if (other.tag == "Player") {
+                RoomName.GetComponent<Text>().text = NameRoom;
+            }
         }
     }
 }
