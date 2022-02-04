@@ -57,6 +57,7 @@
      <Compile Include="Assets\Destroyer.cs" />
      <Compile Include="Assets\Characters\Sam\PlayerController.cs" />
      <Compile Include="Assets\Spawner.cs" />
+     <Compile Include="Assets\Objects\Chest\Chests.cs" />
      <Compile Include="Assets\Rooms\DungeonGenerator.cs" />
      <Compile Include="Assets\Rooms\OldGenerator\RoomPlacer.cs" />
      <Compile Include="Assets\Rooms\OldGenerator\Room.cs" />
@@ -65,7 +66,7 @@
      <Compile Include="Assets\Rooms\LayerConroller.cs" />
      <Compile Include="Assets\Characters\Holem\Holem.cs" />
      <Compile Include="Assets\TeleportTrigger.cs" />
-     <Compile Include="Assets\Objects\Chest\Chests.cs" />
+     <Compile Include="Assets\Objects\Barell\TNT.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
