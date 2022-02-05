@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
     private Rigidbody rb;
     private Vector3 moveSpeed;
+
+    public int health;
     public float MaxMoveSpeed = 8;
     public float JumpForce;
     private float dashingTimeLeft;
 
+    private GameObject HealthBar;
     private CharacterController controllerComponent;
     private Animator Anim;
 
@@ -18,6 +21,11 @@ public class PlayerController : MonoBehaviour {
         controllerComponent = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         Anim = GetComponent<Animator>();
+        health = 100;
+    }
+
+    public void SetBar() {
+        HealthBar = GameObject.FindWithTag("HealthBar");
     }
 
     private void FixedUpdate() {
@@ -34,6 +42,14 @@ public class PlayerController : MonoBehaviour {
             Anim.SetBool("Move", true);
         } else {
             Anim.SetBool("Move", false);
+        }
+
+        if (HealthBar) {
+            HealthBar.GetComponent<Slider>().value = health;
+        }
+
+        if (health <= 0) {
+            Death();
         }
     }
 
@@ -61,5 +77,21 @@ public class PlayerController : MonoBehaviour {
         if (dashingTimeLeft < (holding ? -.4f : -.2f)) {
             dashingTimeLeft = .1f;
         }
+    }
+
+    public void Damage(int type) {
+        if (type == 1) {
+            health -= 5;
+        } else if (type == 2) {
+            health -= 10;
+        } else if (type == 3) {
+            health -= 15;
+        } else if (type == 4) {
+            health -= 20;
+        }
+    }
+
+    public void Death() {
+        Debug.Log("Death");
     }
 }

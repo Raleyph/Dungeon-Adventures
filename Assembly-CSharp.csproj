@@ -67,6 +67,15 @@
      <Compile Include="Assets\Characters\Holem\Holem.cs" />
      <Compile Include="Assets\TeleportTrigger.cs" />
      <Compile Include="Assets\Objects\Barell\TNT.cs" />
+     <Compile Include="Assets\Effects\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+     <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+     <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+     <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\GunShoot.cs" />
+     <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\GunAim.cs" />
+     <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+     <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+     <None Include="Assets\Effects\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

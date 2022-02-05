@@ -6,12 +6,10 @@ TagManager:
   tags:
   - Room
   - Default Sword
-  - Ground
-  - PopUpMenu
-  - SpawnPoint
   - Minecart
   - Door
   - Room Name
+  - HealthBar
   layers:
   - Default
   - TransparentFX

@@ -35,6 +35,7 @@ public class Menu : MonoBehaviour {
         Overlay.SetActive(true);
         isStarted = true;
         Camera.transform.rotation = Quaternion.Euler(60f, 0f, 0f);
+        GameObject.FindWithTag("Player").GetComponent<PlayerController>().SetBar();
     }
 
     public void Pause() {
