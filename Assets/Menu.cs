@@ -70,10 +70,10 @@ public class Menu : MonoBehaviour {
     
     public void DoNewLayer() {
         Destroy(GameObject.FindWithTag("Player"));
-        var obj = GameObject.FindGameObjectsWithTag("Room");
+        var rooms = GameObject.FindGameObjectsWithTag("Room");
 
-        for (int i = 0; i < obj.Length; i++) {
-            Destroy(obj[i]);
+        for (int i = 0; i < rooms.Length; i++) {
+            Destroy(rooms[i]);
         }
         
         NextLevelmenu.SetActive(false);

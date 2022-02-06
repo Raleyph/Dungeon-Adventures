@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     private float dashingTimeLeft;
 
     private GameObject HealthBar;
+    private GameObject LooseMenu;
     private CharacterController controllerComponent;
     private Animator Anim;
 
@@ -92,6 +93,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Death() {
-        Debug.Log("Death");
+        Time.timeScale = 0;
+        LooseMenu = GameObject.FindWithTag("Loose Menu");
+        LooseMenu.SetActive(true);
     }
 }
