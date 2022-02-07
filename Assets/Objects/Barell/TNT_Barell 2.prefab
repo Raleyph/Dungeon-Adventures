@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 3491970302566373200}
   - component: {fileID: 7113247297177039600}
   - component: {fileID: 3753470922902541359}
+  - component: {fileID: 2480060006844956207}
   m_Layer: 0
   m_Name: TNT_Barell 2
   m_TagString: Untagged
@@ -142,6 +143,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Explosive: {fileID: 3010635803746909845}
   Barell: {fileID: 7551131171990446070}
+--- !u!114 &2480060006844956207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074345079085308470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f241164f862abf940b075fd464555e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Change: 0.5
 --- !u!1 &1109001159776248261
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,11 +10,9 @@ public class PlayerController : MonoBehaviour {
 
     public int health;
     public float MaxMoveSpeed = 8;
-    public float JumpForce;
     private float dashingTimeLeft;
 
-    private GameObject HealthBar;
-    private GameObject LooseMenu;
+    private GameObject Menu;
     private CharacterController controllerComponent;
     private Animator Anim;
 
@@ -23,14 +21,6 @@ public class PlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         Anim = GetComponent<Animator>();
         health = 100;
-    }
-
-    public void SetBar() {
-        HealthBar = GameObject.FindWithTag("HealthBar");
-    }
-
-    private void FixedUpdate() {
-        if (Input.GetKey(KeyCode.Space)) rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
     }
 
     private void Update() {
@@ -43,10 +33,6 @@ public class PlayerController : MonoBehaviour {
             Anim.SetBool("Move", true);
         } else {
             Anim.SetBool("Move", false);
-        }
-
-        if (HealthBar) {
-            HealthBar.GetComponent<Slider>().value = health;
         }
 
         if (health <= 0) {
@@ -81,20 +67,27 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Damage(int type) {
-        if (type == 1) {
-            health -= 5;
-        } else if (type == 2) {
-            health -= 10;
-        } else if (type == 3) {
-            health -= 15;
-        } else if (type == 4) {
-            health -= 20;
+        switch (type) {
+            case 1:
+                health -= 5;
+                break;
+            case 2:
+                health -= 10;
+                break;
+            case 3:
+                health -= 15;
+                break;
+            case 4:
+                health -= 20;
+                break;
+            case 5:
+                health -= 50;
+                break;
         }
     }
 
     public void Death() {
-        Time.timeScale = 0;
-        LooseMenu = GameObject.FindWithTag("Loose Menu");
-        LooseMenu.SetActive(true);
+        Menu = GameObject.FindWithTag("GameController");
+        Menu.GetComponent<Menu>().Loose();
     }
 }

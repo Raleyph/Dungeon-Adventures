@@ -14,6 +14,7 @@ public class SoundController : MonoBehaviour {
      * 4 - Death
      * 5 - Coin Pass
      * 6 - New Level
+     * 7 - Explosive
     */
 
     private void Start() {

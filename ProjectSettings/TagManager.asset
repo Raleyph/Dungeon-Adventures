@@ -10,6 +10,8 @@ TagManager:
   - Door
   - Room Name
   - HealthBar
+  - Ground
+  - AdosMenu
   layers:
   - Default
   - TransparentFX
