@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour {
     private void Update() {
         UpdateWalk();
         
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.X)) Dash(false);
-        else if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.X)) Dash(true);
+        if (Input.GetKeyDown(KeyCode.LeftShift)) Dash(false);
+        else if (Input.GetKey(KeyCode.LeftShift)) Dash(true);
 
         if (moveSpeed.x != 0 || moveSpeed.z != 0) {
             Anim.SetBool("Move", true);

@@ -11,6 +11,7 @@ public class Menu : MonoBehaviour {
     public GameObject PauseMenu;
     public GameObject NextLevelmenu;
     public GameObject LooseMenu;
+    public GameObject AdosMenu;
 
     public Slider HealthBar;
 
@@ -28,10 +29,8 @@ public class Menu : MonoBehaviour {
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false && isStarted && isLoosed == false) {
             Pause();
-            isPaused = true;
         } else if (Input.GetKeyDown(KeyCode.Escape) && isPaused) {
             Resume();
-            isPaused = false;
         }
 
         if (isStarted) {
@@ -53,6 +52,7 @@ public class Menu : MonoBehaviour {
     public void Pause() {
         Cursor.visible = true;
         Time.timeScale = 0;
+        isPaused = true;
         
         PauseMenu.SetActive(true);
         Overlay.SetActive(false);
@@ -61,6 +61,7 @@ public class Menu : MonoBehaviour {
     public void Resume() {
         Cursor.visible = false;
         Time.timeScale = 1;
+        isPaused = false;
         
         PauseMenu.SetActive(false);
         Overlay.SetActive(true);
@@ -117,5 +118,21 @@ public class Menu : MonoBehaviour {
         Overlay.SetActive(false);
         LooseMenu.SetActive(true);
         Player.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    public void AdosMenus() {
+        Cursor.visible = true;
+
+        AdosMenu.SetActive(true);
+        Overlay.SetActive(false);
+        isPaused = true;
+    }
+
+    public void AdosMenusClose() {
+        Cursor.visible = false;
+
+        AdosMenu.SetActive(false);
+        Overlay.SetActive(true);
+        isPaused = false;
     }
 }

@@ -37,7 +37,7 @@ public class DungeonGenerator : MonoBehaviour {
 
     void Start() {
         MazeGenerator();
-        Instantiate(PlayerPrefab, new Vector3(0f, 1.527f, 0f), Quaternion.identity);
+        Instantiate(PlayerPrefab, new Vector3(0f, 1.6f, 0f), Quaternion.identity);
         Level = 0;
     }
 
@@ -47,9 +47,15 @@ public class DungeonGenerator : MonoBehaviour {
                 Cell currentCell = board[(i + j * size.x)];
                 
                 if (currentCell.visited) {
-                    var newRoom = Instantiate(rooms[Random.Range(0, rooms.Length)].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
-                    newRoom.UpdateRoom(currentCell.status);
-                    newRoom.name += " " + i + "-" + j;
+                    if (i == 0 && j == 0) {
+                        var newRoom = Instantiate(rooms[0].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
+                        newRoom.UpdateRoom(currentCell.status);
+                        newRoom.name += " " + i + "-" + j;
+                    } else {
+                        var newRoom = Instantiate(rooms[Random.Range(0, rooms.Length)].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
+                        newRoom.UpdateRoom(currentCell.status);
+                        newRoom.name += " " + i + "-" + j;
+                    }
                 }
             }
         }

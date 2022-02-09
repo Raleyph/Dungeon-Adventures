@@ -19,9 +19,9 @@ public class CameraFollow : MonoBehaviour {
     private void Update() {
         Target = GameObject.FindWithTag("Player");
 
-        if (Input.GetKeyDown(KeyCode.Q)) {
+        if (Input.GetKeyDown(KeyCode.Q) && isZoomed == false) {
             isZoomed = true;
-        } else if (Input.GetKeyDown(KeyCode.E)) {
+        } else if (Input.GetKeyDown(KeyCode.Q) && isZoomed) {
             isZoomed = false;
         }
 
