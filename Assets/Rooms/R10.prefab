@@ -91,7 +91,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: 21129af99cad12346971078998ab1570, type: 3}
+  - {fileID: 2100000, guid: afcad43d6b3f695419a1a92bb3780432, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,7 +296,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: 21129af99cad12346971078998ab1570, type: 3}
+  - {fileID: 2100000, guid: 3fd19dfba623f1d42981c850afd373c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -424,7 +424,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: 21129af99cad12346971078998ab1570, type: 3}
+  - {fileID: 2100000, guid: 3fd19dfba623f1d42981c850afd373c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1089,7 +1089,11 @@ MonoBehaviour:
   - {fileID: 5524100429212452012}
   - {fileID: 949400716143245201}
   - {fileID: 7834154411024098525}
+  Spawners: []
+  Enemy: []
   NameRoom: Rails
+  SpawnerType: 0
+  HaveSpawner: 0
 --- !u!65 &5484979211038897464
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1163,7 +1167,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: 21129af99cad12346971078998ab1570, type: 3}
+  - {fileID: 2100000, guid: 3fd19dfba623f1d42981c850afd373c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,7 +38,7 @@ public class Menu : MonoBehaviour {
     public void Play() {
         Cursor.visible = false;
         Time.timeScale = 1;
-        
+
         MainMenu.SetActive(false);
         Overlay.SetActive(true);
         isStarted = true;

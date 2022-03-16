@@ -57,7 +57,11 @@ MonoBehaviour:
   - {fileID: 8240803809248446831}
   - {fileID: 1352868759698927796}
   - {fileID: 2376404632252508808}
+  Spawners: []
+  Enemy: []
   NameRoom: Chest
+  SpawnerType: 0
+  HaveSpawner: 0
 --- !u!65 &-3215631225215108236
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: b756128b087ab6145aeb7327e836be5b, type: 3}
+  - {fileID: 2100000, guid: 07d39e5cbed3c714dbe7014f573b6293, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -403,7 +407,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: b756128b087ab6145aeb7327e836be5b, type: 3}
+  - {fileID: 2100000, guid: 07d39e5cbed3c714dbe7014f573b6293, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -626,7 +630,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: b756128b087ab6145aeb7327e836be5b, type: 3}
+  - {fileID: 2100000, guid: 07d39e5cbed3c714dbe7014f573b6293, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1591,7 +1595,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: b756128b087ab6145aeb7327e836be5b, type: 3}
+  - {fileID: 2100000, guid: 07d39e5cbed3c714dbe7014f573b6293, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
