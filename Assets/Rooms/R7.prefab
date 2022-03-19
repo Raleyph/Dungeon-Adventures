@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 257710025117859746}
   - component: {fileID: 2081041470740410586}
   - component: {fileID: 3177851321577338806}
+  - component: {fileID: 8522728180632663905}
   m_Layer: 0
   m_Name: R7
   m_TagString: Room
@@ -332,6 +333,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15, y: 5, z: 15}
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!114 &8522728180632663905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637331140277216536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.4
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 4a9182cb1982e5d4a9bfe32ba7d007a1, type: 2}
 --- !u!1 &651093502793785652
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1028,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9120528438534550633}
   - component: {fileID: 2096489423511940127}
-  - component: {fileID: 6247446430523765039}
   m_Layer: 0
   m_Name: Well
   m_TagString: Untagged
@@ -1039,19 +1068,6 @@ CapsuleCollider:
   m_Height: 1.91
   m_Direction: 1
   m_Center: {x: 0, y: 1.29, z: 0}
---- !u!114 &6247446430523765039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576805556994049366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f241164f862abf940b075fd464555e83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Change: 0.005
 --- !u!1 &2718198325365810029
 GameObject:
   m_ObjectHideFlags: 0

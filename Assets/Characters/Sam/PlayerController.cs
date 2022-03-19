@@ -90,4 +90,12 @@ public class PlayerController : MonoBehaviour {
         Menu = GameObject.FindWithTag("GameController");
         Menu.GetComponent<Menu>().Loose();
     }
+
+    private void OnTriggerEnter(Collider other) {
+        switch (other.tag) {
+            case "Skeleton":
+                Damage(1);
+                break;
+        }
+    }
 }

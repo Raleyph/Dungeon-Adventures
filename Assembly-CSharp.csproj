@@ -55,6 +55,7 @@
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Rooms\RoomBehaviour.cs" />
      <Compile Include="Assets\SoundController.cs" />
+     <Compile Include="Assets\Debug\enemy.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
      <Compile Include="Assets\Destroyer.cs" />
@@ -681,6 +682,14 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{e5740adb-af65-9853-d0df-0373428c45fc}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{acaf9733-a003-86e9-2719-79ff0d5c94c7}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

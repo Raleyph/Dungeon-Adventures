@@ -115,6 +115,7 @@ public class Menu : MonoBehaviour {
         Overlay.SetActive(false);
         LooseMenu.SetActive(true);
         Player.GetComponent<Rigidbody>().isKinematic = true;
+        Player.GetComponent<PlayerController>().enabled = false;
     }
 
     public void AdosMenus() {
@@ -123,6 +124,8 @@ public class Menu : MonoBehaviour {
         AdosMenu.SetActive(true);
         Overlay.SetActive(false);
         isPaused = true;
+        Camera.GetComponent<CameraFollow>().isCharacterContact = true;
+        Player.GetComponent<PlayerController>().enabled = false;
     }
 
     public void AdosMenusClose() {
@@ -131,5 +134,7 @@ public class Menu : MonoBehaviour {
         AdosMenu.SetActive(false);
         Overlay.SetActive(true);
         isPaused = false;
+        Camera.GetComponent<CameraFollow>().isCharacterContact = false;
+        Player.GetComponent<PlayerController>().enabled = false;
     }
 }

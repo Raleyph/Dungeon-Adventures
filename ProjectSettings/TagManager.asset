@@ -12,6 +12,7 @@ TagManager:
   - HealthBar
   - Ground
   - AdosMenu
+  - Skeleton
   layers:
   - Default
   - TransparentFX
@@ -19,11 +20,11 @@ TagManager:
   - 
   - Water
   - UI
+  - Things
+  - 
+  - Spawner
   - 
   - 
-  - 
-  - 
-  - Post
   - 
   - 
   - 

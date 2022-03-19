@@ -1,42 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Skeleton : MonoBehaviour {
-    public Vector3 Zentr;
-    private GameObject Sam;
+    [SerializeField]
+    private NavMeshAgent Agent;
     
-    public float EnemySpeed;
-    public int health = 10;
-    public bool isActive;
-
-    private Animator Anim;
+    private GameObject Player;
 
     private void Start() {
-        Sam = GameObject.FindWithTag("Player");
-        Anim = GetComponent<Animator>();
+        Player = GameObject.FindWithTag("Player");
     }
 
-    void FixedUpdate() {
-        if (isActive) {
-            float dist = Vector3.Distance(Sam.transform.position, transform.position);
+    void Update() {
+        Agent.SetDestination(Player.transform.position);
 
-            if (dist <= 20) {
-                Zentr = Sam.transform.position;
-                Zentr.y = 0;
-                Vector3 EnemyMove = Vector3.MoveTowards(transform.position, Zentr, EnemySpeed * Time.deltaTime);
-
-                transform.position = new Vector3(EnemyMove.x, EnemyMove.y, EnemyMove.z);
-                transform.LookAt(Zentr);
-                Anim.SetBool("Move", true);
-            } else {
-                Anim.SetBool("Move", false);
-            }
+        if (Agent.transform) {
+            Agent.GetComponent<Animator>().SetBool("Move", true);
+        } else {
+            Agent.GetComponent<Animator>().SetBool("Move", false);
         }
-    }
-    
-    private void Death() {
-        Destroy(gameObject);
     }
 }
