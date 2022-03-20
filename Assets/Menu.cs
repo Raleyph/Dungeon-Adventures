@@ -1,31 +1,55 @@
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
+using Cursor = UnityEngine.Cursor;
+using Slider = UnityEngine.UI.Slider;
 
 public class Menu : MonoBehaviour {
     [Header("UI Objects")]
     public GameObject MainMenu;
     public GameObject Overlay;
+    public GameObject SettingsMenu;
     public GameObject PauseMenu;
     public GameObject NextLevelmenu;
     public GameObject LooseMenu;
     public GameObject AdosMenu;
+    
+    [Header("Sound Controller")]
+    public AudioSource Controller;
+    public AudioClip[] Sounds;
+    public AudioMixer MasterVolume;
+    public AudioMixerGroup SoundsMix;
+    public AudioMixerGroup MusicMix;
 
-    [Header("Other")]
+    [Header("Settings & Etc")]
     public Slider HealthBar;
     public Text Level;
     public Text RoomName;
+    public Slider MusicSlider;
+    public Slider VolumeSlider;
+    public Dropdown QualityDropdown;
+    public PostProcessVolume Blur;
     public GameObject SpotLight;
     public GameObject Camera;
+    
+    Resolution[] resolutions;
 
     private GameObject Player;
 
     private bool isStarted = false;
     private bool isPaused = false;
     private bool isLoosed = false;
-    
+
+    private float soundVolume;
+    private float musicVolume;
+    private float masterVolume;
+
     private void Start() {
         Cursor.visible = true;
         Time.timeScale = 0;
+
+        Controller = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -44,9 +68,7 @@ public class Menu : MonoBehaviour {
         }
     }
 
-    public void NameRoom(string room) {
-        RoomName.text = room;
-    }
+    // Main Menu
     
     public void Play() {
         Cursor.visible = false;
@@ -56,9 +78,20 @@ public class Menu : MonoBehaviour {
         MainMenu.SetActive(false);
         Overlay.SetActive(true);
         isStarted = true;
+        isLoosed = false;
         Camera.transform.rotation = Quaternion.Euler(60f, 0f, 0f);
         Player = GameObject.FindWithTag("Player");
     }
+    
+    public void Exit() {
+        Application.Quit();
+    }
+
+    public void GitHub() {
+        Application.OpenURL("https://github.com/Raleyph/Dungeon-Adventures");
+    }
+    
+    // Pause
 
     public void Pause() {
         Cursor.visible = true;
@@ -76,15 +109,6 @@ public class Menu : MonoBehaviour {
         
         PauseMenu.SetActive(false);
         Overlay.SetActive(true);
-    }
-    
-    public void OpenLevelMenu() {
-        Cursor.visible = true;
-        Time.timeScale = 0;
-        
-        NextLevelmenu.SetActive(true);
-        Overlay.SetActive(false);
-        isPaused = true;
     }
 
     public void ToMenu() {
@@ -118,6 +142,32 @@ public class Menu : MonoBehaviour {
         PauseMenu.SetActive(false);
         Overlay.SetActive(false);
     }
+
+    public void OpenSettings() {
+        PauseMenu.SetActive(false);
+        SettingsMenu.SetActive(true);
+    }
+
+    public void CloseSettings() {
+        if (isPaused) {
+            PauseMenu.SetActive(true);
+        } else {
+            MainMenu.SetActive(true);
+        }
+        
+        SettingsMenu.SetActive(false);
+    }
+    
+    // New Layer
+    
+    public void OpenLevelMenu() {
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        
+        NextLevelmenu.SetActive(true);
+        Overlay.SetActive(false);
+        isPaused = true;
+    }
     
     public void DoNewLayer() {
         Cursor.visible = false;
@@ -142,6 +192,8 @@ public class Menu : MonoBehaviour {
         NextLevelmenu.SetActive(false);
         Overlay.SetActive(true);
     }
+    
+    // Etc
 
     public void Loose() {
         Cursor.visible = true;
@@ -152,6 +204,12 @@ public class Menu : MonoBehaviour {
         LooseMenu.SetActive(true);
         Player.GetComponent<PlayerController>().enabled = false;
     }
+    
+    public void NameRoom(string room) {
+        RoomName.text = room;
+    }
+    
+    // Ados
 
     public void AdosMenus() {
         Cursor.visible = true;
@@ -168,12 +226,45 @@ public class Menu : MonoBehaviour {
         Overlay.SetActive(true);
         isPaused = false;
     }
+    
+    // Settings
 
-    public void Exit() {
-        Application.Quit();
+    public void SetQuality(int index) {
+        index = QualityDropdown.value;
+        QualitySettings.SetQualityLevel(index, true);
     }
 
-    public void GitHub() {
-        Application.OpenURL("https://github.com/Raleyph/Dungeon-Adventures");
+    public void SetResolution(int index) {
+        Resolution resolution = resolutions[index];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetMotionBlur(bool blur) {
+        Blur.GetComponent<MotionBlur>().active = blur;
+    }
+
+    public void SetFullscreen(bool fullscreen) {
+        Screen.fullScreen = fullscreen;
+    }
+    
+    // Sound Controller
+
+    public void PlaySound(string sound) {
+        switch (sound) {
+            case "Tap":
+                Controller.clip = Sounds[0];
+                Controller.Play();
+                break;
+        }
+    }
+    
+    public void SetMusicVolume(float volume) {
+        MusicMix.audioMixer.SetFloat("Music", volume);
+        musicVolume = volume;
+    }
+
+    public void SetSoundVolume(float volume) {
+        SoundsMix.audioMixer.SetFloat("Sounds", volume);
+        soundVolume = volume;
     }
 }

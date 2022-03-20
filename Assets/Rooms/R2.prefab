@@ -502,8 +502,8 @@ MonoBehaviour:
   - {fileID: 6186481828621913638}
   - {fileID: 4888741282464501369}
   - {fileID: 4970390743200786692}
-  Spawners: []
   Enemy: []
+  Spawners: []
   NameRoom: Mine
   SpawnerType: 0
   HaveSpawner: 0

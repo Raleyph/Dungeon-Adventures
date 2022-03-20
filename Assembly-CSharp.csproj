@@ -54,7 +54,6 @@
   <ItemGroup>
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Rooms\RoomBehaviour.cs" />
-     <Compile Include="Assets\SoundController.cs" />
      <Compile Include="Assets\Debug\enemy.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
