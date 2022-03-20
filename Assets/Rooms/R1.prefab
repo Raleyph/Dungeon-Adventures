@@ -1377,7 +1377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6563881589940815582}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4060583724888613232}
@@ -1409,12 +1409,12 @@ MonoBehaviour:
   - {fileID: 2880061156363502627}
   - {fileID: 7203644852718221730}
   - {fileID: 1005225741933608098}
-  Spawners:
-  - {fileID: 6166960500933976327}
-  - {fileID: 3031045005499022066}
-  - {fileID: 773821927036057244}
   Enemy:
   - {fileID: 3881905137809922005, guid: 2043c61e7920fad438f87937655b9665, type: 3}
+  Spawners:
+  - {fileID: 4651639709574647182}
+  - {fileID: 2668698383713270705}
+  - {fileID: 7109519229967509030}
   NameRoom: Shop
   SpawnerType: 0
   HaveSpawner: 1
@@ -1982,7 +1982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8879628787648080944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 3.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4651639709574647182}

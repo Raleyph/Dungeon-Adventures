@@ -2,15 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
+    [Header("UI Objects")]
     public GameObject MainMenu;
     public GameObject Overlay;
-    public GameObject Camera;
     public GameObject PauseMenu;
     public GameObject NextLevelmenu;
     public GameObject LooseMenu;
     public GameObject AdosMenu;
 
+    [Header("Other")]
     public Slider HealthBar;
+    public Text Level;
+    public Text RoomName;
+    public GameObject SpotLight;
+    public GameObject Camera;
 
     private GameObject Player;
 
@@ -30,15 +35,24 @@ public class Menu : MonoBehaviour {
             Resume();
         }
 
-        if (isStarted) {
+        if (HealthBar && Player) {
             HealthBar.value = Player.GetComponent<PlayerController>().health;
         }
+
+        if (Level) {
+            Level.text = GetComponent<DungeonGenerator>().Level.ToString();
+        }
+    }
+
+    public void NameRoom(string room) {
+        RoomName.text = room;
     }
     
     public void Play() {
         Cursor.visible = false;
         Time.timeScale = 1;
 
+        SpotLight.SetActive(false);
         MainMenu.SetActive(false);
         Overlay.SetActive(true);
         isStarted = true;
@@ -77,8 +91,30 @@ public class Menu : MonoBehaviour {
         Cursor.visible = true;
         Time.timeScale = 0;
         
+        // destroy Sam
+        Destroy(GameObject.FindWithTag("Player"));
+        
+        // destroy rooms
+        var rooms = GameObject.FindGameObjectsWithTag("Room");
+        for (int i = 0; i < rooms.Length; i++) {
+            Destroy(rooms[i]);
+        }
+
+        // destroy skeleton`s
+        var skeletons = GameObject.FindGameObjectsWithTag("Skeleton");
+        for (int i = 0; i < skeletons.Length; i++) {
+            Destroy(skeletons[i]);
+        }
+        
+        GetComponent<DungeonGenerator>().AllRefreshGenerate();
+        Camera.transform.position = new Vector3(3f, 1.5f, 3f);
+        Camera.transform.rotation = Quaternion.Euler(0f, -135f, 0f);
+
         isStarted = false;
+        isPaused = false;
+        SpotLight.SetActive(true);
         MainMenu.SetActive(true);
+        LooseMenu.SetActive(false);
         PauseMenu.SetActive(false);
         Overlay.SetActive(false);
     }
@@ -114,18 +150,15 @@ public class Menu : MonoBehaviour {
         isStarted = false;
         Overlay.SetActive(false);
         LooseMenu.SetActive(true);
-        Player.GetComponent<Rigidbody>().isKinematic = true;
         Player.GetComponent<PlayerController>().enabled = false;
     }
 
     public void AdosMenus() {
         Cursor.visible = true;
-
+        
         AdosMenu.SetActive(true);
         Overlay.SetActive(false);
         isPaused = true;
-        Camera.GetComponent<CameraFollow>().isCharacterContact = true;
-        Player.GetComponent<PlayerController>().enabled = false;
     }
 
     public void AdosMenusClose() {
@@ -134,7 +167,13 @@ public class Menu : MonoBehaviour {
         AdosMenu.SetActive(false);
         Overlay.SetActive(true);
         isPaused = false;
-        Camera.GetComponent<CameraFollow>().isCharacterContact = false;
-        Player.GetComponent<PlayerController>().enabled = false;
+    }
+
+    public void Exit() {
+        Application.Quit();
+    }
+
+    public void GitHub() {
+        Application.OpenURL("https://github.com/Raleyph/Dungeon-Adventures");
     }
 }

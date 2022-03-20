@@ -1875,7 +1875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327668971462037497}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2289741300703880097}
@@ -1907,12 +1907,12 @@ MonoBehaviour:
   - {fileID: 6119074102610566163}
   - {fileID: 7326168673475082781}
   - {fileID: 2142835609863379542}
+  Enemy:
+  - {fileID: 1103809398145859996, guid: 3293d460f588c6343ab69caee4362bef, type: 3}
   Spawners:
   - {fileID: 5219345412714819165}
   - {fileID: 8496443597887369317}
   - {fileID: 7960374483263817886}
-  Enemy:
-  - {fileID: 1103809398145859996, guid: 3293d460f588c6343ab69caee4362bef, type: 3}
   NameRoom: Room
   SpawnerType: 0
   HaveSpawner: 0

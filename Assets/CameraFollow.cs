@@ -30,7 +30,7 @@ public class CameraFollow : MonoBehaviour {
             }
         } else if (isCharacterContact == true) {
             if (Target) {
-                transform.position = Vector3.SmoothDamp(transform.position, Target.transform.position + CharacterOffset, ref Velocity, 0.18f, 40);
+                transform.position = Target.transform.position + CharacterOffset;
                 transform.rotation = Quaternion.Euler(30f, 15f, 0f);
             }
         } else {

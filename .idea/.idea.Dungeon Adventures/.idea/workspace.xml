@@ -3,24 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="fc24536f-9dbb-4e68-9124-91a87f4813ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon 1.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/skeleton.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/skeleton.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/walk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/walk.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Coin/Coin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Coin/Coin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/LayerConroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/LayerConroller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/R0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R0.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/R1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R5.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R6.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R7.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R8.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R9.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SoundController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SoundController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,8 @@
       <workItem from="1647368051692" duration="621000" />
       <workItem from="1647433469531" duration="10257000" />
       <workItem from="1647532982820" duration="4950000" />
-      <workItem from="1647642517014" duration="4573000" />
+      <workItem from="1647642517014" duration="6706000" />
+      <workItem from="1647695229678" duration="20586000" />
     </task>
     <servers />
   </component>
