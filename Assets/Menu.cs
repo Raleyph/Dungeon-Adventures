@@ -1,7 +1,9 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 using Slider = UnityEngine.UI.Slider;
 
@@ -17,10 +19,8 @@ public class Menu : MonoBehaviour {
     
     [Header("Sound Controller")]
     public AudioSource Controller;
+    public AudioMixerGroup MasterVolume;
     public AudioClip[] Sounds;
-    public AudioMixer MasterVolume;
-    public AudioMixerGroup SoundsMix;
-    public AudioMixerGroup MusicMix;
 
     [Header("Settings & Etc")]
     public Slider HealthBar;
@@ -29,7 +29,7 @@ public class Menu : MonoBehaviour {
     public Slider MusicSlider;
     public Slider VolumeSlider;
     public Dropdown QualityDropdown;
-    public PostProcessVolume Blur;
+    public PostProcessVolume PostProcess;
     public GameObject SpotLight;
     public GameObject Camera;
     
@@ -174,12 +174,17 @@ public class Menu : MonoBehaviour {
         Time.timeScale = 1;
         
         Destroy(GameObject.FindWithTag("Player"));
+        
         var rooms = GameObject.FindGameObjectsWithTag("Room");
-
         for (int i = 0; i < rooms.Length; i++) {
             Destroy(rooms[i]);
         }
         
+        var skeletons = GameObject.FindGameObjectsWithTag("Skeleton");
+        for (int i = 0; i < skeletons.Length; i++) {
+            Destroy(skeletons[i]);
+        }
+
         NextLevelmenu.SetActive(false);
         Overlay.SetActive(true);
         GetComponent<DungeonGenerator>().NewLayer();
@@ -191,6 +196,7 @@ public class Menu : MonoBehaviour {
         
         NextLevelmenu.SetActive(false);
         Overlay.SetActive(true);
+        isPaused = false;
     }
     
     // Etc
@@ -240,7 +246,7 @@ public class Menu : MonoBehaviour {
     }
 
     public void SetMotionBlur(bool blur) {
-        Blur.GetComponent<MotionBlur>().active = blur;
+        PostProcess.GetComponent<MotionBlur>().active = blur;
     }
 
     public void SetFullscreen(bool fullscreen) {
@@ -255,16 +261,26 @@ public class Menu : MonoBehaviour {
                 Controller.clip = Sounds[0];
                 Controller.Play();
                 break;
+            case "Spawn":
+                Controller.clip = Sounds[1];
+                Controller.Play();
+                break;
+            case "Damage":
+                Controller.clip = Sounds[2];
+                Controller.Play();
+                break;
         }
     }
     
+    public void SetMasterVolume(float volume) {
+        MasterVolume.audioMixer.SetFloat("Master", Mathf.Lerp(-80, 0, volume));
+    }
+    
     public void SetMusicVolume(float volume) {
-        MusicMix.audioMixer.SetFloat("Music", volume);
-        musicVolume = volume;
+        MasterVolume.audioMixer.SetFloat("Music", Mathf.Lerp(-80, 0, volume));
     }
 
     public void SetSoundVolume(float volume) {
-        SoundsMix.audioMixer.SetFloat("Sounds", volume);
-        soundVolume = volume;
+        MasterVolume.audioMixer.SetFloat("Sounds", Mathf.Lerp(-80, 0, volume));
     }
 }

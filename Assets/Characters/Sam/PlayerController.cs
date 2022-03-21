@@ -5,6 +5,10 @@ public class PlayerController : MonoBehaviour {
     private Vector3 moveSpeed;
 
     public int health;
+    public int armor;
+
+    private bool isArmored = false;
+    
     public float MaxMoveSpeed = 8;
     private float dashingTimeLeft;
 
@@ -13,7 +17,9 @@ public class PlayerController : MonoBehaviour {
     private Animator Anim;
 
     private void Start() {
+        Menu = GameObject.FindWithTag("GameController");
         controllerComponent = GetComponent<CharacterController>();
+        
         rb = GetComponent<Rigidbody>();
         Anim = GetComponent<Animator>();
         health = 100;
@@ -63,35 +69,43 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Damage(int type) {
-        switch (type) {
-            case 1:
-                health -= 5;
-                break;
-            case 2:
-                health -= 10;
-                break;
-            case 3:
-                health -= 15;
-                break;
-            case 4:
-                health -= 20;
-                break;
-            case 5:
-                health -= 50;
-                break;
+        if (isArmored == false || armor == 0) {
+            switch (type) {
+                case 1:
+                    health -= 5;
+                    break;
+                case 2:
+                    health -= 10;
+                    break;
+                case 3:
+                    health -= 15;
+                    break;
+                case 4:
+                    health -= 20;
+                    break;
+                case 5:
+                    health -= 50;
+                    break;
+            }
         }
+        
+        Menu.GetComponent<Menu>().PlaySound("Damage");
     }
 
     public void Death() {
-        Menu = GameObject.FindWithTag("GameController");
+        //Menu = GameObject.FindWithTag("GameController");
         Menu.GetComponent<Menu>().Loose();
     }
 
-    private void OnTriggerEnter(Collider other) {
-        switch (other.tag) {
-            case "Skeleton":
-                Damage(1);
-                break;
+    public void HealthPosion() {
+        if (health <= 75) {
+            health += 25;
+        } else {
+            Debug.Log("Здоровый, блять, как пельмень!");
         }
+    }
+
+    public void ArmorSet() {
+        
     }
 }

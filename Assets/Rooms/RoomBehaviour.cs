@@ -15,6 +15,9 @@ public class RoomBehaviour : MonoBehaviour {
     public string NameRoom;
     public int SpawnerType;
     public bool HaveSpawner;
+    public bool isActiveRoom;
+
+    private List<Skeleton> SkeletonsInRoom = new List<Skeleton>();
 
     private void Awake() {
         DungeonController = GameObject.FindWithTag("GameController");
@@ -36,7 +39,12 @@ public class RoomBehaviour : MonoBehaviour {
                 
                 if (HaveSpawner) {
                     StartCoroutine(Spawn());
+                    isActiveRoom = true;
                 }
+            }
+
+            if (other.tag == "Skeleton") {
+                SkeletonsInRoom.Add(other.GetComponent<Skeleton>());
             }
         }
     }
@@ -45,12 +53,26 @@ public class RoomBehaviour : MonoBehaviour {
         if (Time.timeScale == 1) {
             if (other.tag == "Player" && HaveSpawner) {
                 StopCoroutine(Spawn());
+                isActiveRoom = false;
             }
         }
     }
 
     IEnumerator Spawn() {
         Instantiate(Enemy[SpawnerType], Spawners[Random.Range(0, Spawners.Length)].position, Quaternion.identity);
+        DungeonController.GetComponent<Menu>().PlaySound("Spawn");
         yield return new WaitForSeconds(1f);
+    }
+
+    private void Update() {
+        if (isActiveRoom) {
+            for (int i = 0; i < SkeletonsInRoom.Count; i++) {
+                SkeletonsInRoom[i].GetComponent<Skeleton>().isActive = true;
+            }
+        } else {
+            for (int i = 0; i < SkeletonsInRoom.Count; i++) {
+                SkeletonsInRoom[i].GetComponent<Skeleton>().isActive = false;
+            }
+        }
     }
 }

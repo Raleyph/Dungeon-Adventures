@@ -3,19 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="fc24536f-9dbb-4e68-9124-91a87f4813ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/EffectExamples/FireExplosionEffects/Materials/PlasmaExplosionParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/EffectExamples/FireExplosionEffects/Materials/PlasmaExplosionParticle.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/R2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SoundController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SoundController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/SoundController.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds/SoundController.mixer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/tap.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/tap.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/Spawner.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/Spawner.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/SoundController.mixer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/SoundController.mixer.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/sword.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/sword.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/after_slider.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/after_slider.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/before_slider.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/before_slider.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/slider_cap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/slider_cap.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +94,7 @@
       <workItem from="1647642517014" duration="6706000" />
       <workItem from="1647695229678" duration="23132000" />
       <workItem from="1647781477179" duration="5569000" />
-      <workItem from="1647787845061" duration="14732000" />
+      <workItem from="1647787845061" duration="35300000" />
     </task>
     <servers />
   </component>
@@ -96,24 +106,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Menu.cs</url>
-          <line>213</line>
-          <properties documentPath="D:\Raleyph Technologies\Game Development\Dungeon Adventures\Assets\Menu.cs" initialLine="178" containingFunctionPresentation="method 'AdosMenus'">
-            <startOffsets>
-              <option value="5492" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5493" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

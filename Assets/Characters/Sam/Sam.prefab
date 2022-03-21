@@ -858,7 +858,6 @@ GameObject:
   - component: {fileID: 4808903819595809134}
   - component: {fileID: 4808903819595809128}
   - component: {fileID: 4407402109989257227}
-  - component: {fileID: -886154561925819923}
   m_Layer: 0
   m_Name: Sam
   m_TagString: Player
@@ -957,19 +956,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &-886154561925819923
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4808903819595809135}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.92
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4982191810387386855
 GameObject:
   m_ObjectHideFlags: 0

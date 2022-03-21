@@ -7,7 +7,7 @@ public class Skeleton : MonoBehaviour {
     private NavMeshAgent Agent;
     
     private GameObject Player;
-    private bool isActive;
+    public bool isActive;
 
     private void Start() {
         Player = GameObject.FindWithTag("Player");
@@ -16,20 +16,19 @@ public class Skeleton : MonoBehaviour {
     void Update() {
         if (isActive) {
             Agent.SetDestination(Player.transform.position);
-
-            if (Agent.transform) {
-                Agent.GetComponent<Animator>().SetBool("Move", true);
-            } else {
-                Agent.GetComponent<Animator>().SetBool("Move", false);
-            }
+            Agent.GetComponent<Animator>().SetBool("Move", true);
+        } else {
+            Agent.GetComponent<Animator>().SetBool("Move", false);
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
-        isActive = true;
-    }
-
-    private void OnTriggerExit(Collider other) {
-        isActive = false;
+    private void OnTriggerStay(Collider other) {
+        if (other.tag == "Room") {
+            if (other.GetComponent<RoomBehaviour>().isActiveRoom == true) {
+                isActive = true;
+            } else {
+                isActive = false;
+            }
+        }
     }
 }

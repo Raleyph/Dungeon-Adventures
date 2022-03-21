@@ -41,7 +41,7 @@ public class DungeonGenerator : MonoBehaviour {
     public void AllRefreshGenerate() {
         MazeGenerator();
         Instantiate(PlayerPrefab, new Vector3(0f, 1.6f, 0f), Quaternion.identity);
-        Level = 0;
+        Level = 1;
     }
 
     void GenerateDungeon() {
