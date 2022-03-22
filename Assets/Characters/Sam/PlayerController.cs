@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public int health;
     public int armor;
+    public int coins;
 
     private bool isArmored = false;
     

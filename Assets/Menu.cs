@@ -1,11 +1,7 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Cursor = UnityEngine.Cursor;
-using Slider = UnityEngine.UI.Slider;
 
 public class Menu : MonoBehaviour {
     [Header("UI Objects")]
@@ -15,7 +11,11 @@ public class Menu : MonoBehaviour {
     public GameObject PauseMenu;
     public GameObject NextLevelmenu;
     public GameObject LooseMenu;
+    
+    [Header("Character Menus")]
     public GameObject AdosMenu;
+    public GameObject AphaleonMenu;
+    public GameObject MichaelMenu;
     
     [Header("Sound Controller")]
     public AudioSource Controller;
@@ -32,10 +32,14 @@ public class Menu : MonoBehaviour {
     public PostProcessVolume PostProcess;
     public GameObject SpotLight;
     public GameObject Camera;
-    
+
     Resolution[] resolutions;
 
     private GameObject Player;
+    private DungeonGenerator DG;
+    
+    private MotionBlur Blur;
+    private DepthOfField DOF;
 
     private bool isStarted = false;
     private bool isPaused = false;
@@ -50,6 +54,13 @@ public class Menu : MonoBehaviour {
         Time.timeScale = 0;
 
         Controller = gameObject.GetComponent<AudioSource>();
+        
+        Blur = ScriptableObject.CreateInstance<MotionBlur>();
+        DOF = ScriptableObject.CreateInstance<DepthOfField>();
+        PostProcess.profile.TryGetSettings(out Blur);
+        PostProcess.profile.TryGetSettings(out DOF);
+
+        DG = GetComponent<DungeonGenerator>();
     }
 
     private void Update() {
@@ -57,6 +68,8 @@ public class Menu : MonoBehaviour {
             Pause();
         } else if (Input.GetKeyDown(KeyCode.Escape) && isPaused) {
             Resume();
+        } else if (Input.GetKeyDown(KeyCode.Space) && MainMenu) {
+            Play();
         }
 
         if (HealthBar && Player) {
@@ -64,7 +77,13 @@ public class Menu : MonoBehaviour {
         }
 
         if (Level) {
-            Level.text = GetComponent<DungeonGenerator>().Level.ToString();
+            Level.text = DG.Level.ToString();
+        }
+
+        if (isPaused || isLoosed) {
+            DOF.active = true;
+        } else {
+            DOF.active = false;
         }
     }
 
@@ -78,7 +97,6 @@ public class Menu : MonoBehaviour {
         MainMenu.SetActive(false);
         Overlay.SetActive(true);
         isStarted = true;
-        isLoosed = false;
         Camera.transform.rotation = Quaternion.Euler(60f, 0f, 0f);
         Player = GameObject.FindWithTag("Player");
     }
@@ -136,6 +154,8 @@ public class Menu : MonoBehaviour {
 
         isStarted = false;
         isPaused = false;
+        isLoosed = false;
+        
         SpotLight.SetActive(true);
         MainMenu.SetActive(true);
         LooseMenu.SetActive(false);
@@ -144,7 +164,11 @@ public class Menu : MonoBehaviour {
     }
 
     public void OpenSettings() {
-        PauseMenu.SetActive(false);
+        if (isPaused) {
+            PauseMenu.SetActive(false);
+        } else {
+            MainMenu.SetActive(false);
+        }
         SettingsMenu.SetActive(true);
     }
 
@@ -154,7 +178,6 @@ public class Menu : MonoBehaviour {
         } else {
             MainMenu.SetActive(true);
         }
-        
         SettingsMenu.SetActive(false);
     }
     
@@ -187,6 +210,7 @@ public class Menu : MonoBehaviour {
 
         NextLevelmenu.SetActive(false);
         Overlay.SetActive(true);
+        isPaused = false;
         GetComponent<DungeonGenerator>().NewLayer();
     }
 
@@ -197,6 +221,57 @@ public class Menu : MonoBehaviour {
         NextLevelmenu.SetActive(false);
         Overlay.SetActive(true);
         isPaused = false;
+    }
+    
+    // Settings
+
+    public void SetQuality(int index) {
+        index = QualityDropdown.value;
+        QualitySettings.SetQualityLevel(index, true);
+    }
+
+    public void SetResolution(int index) {
+        Resolution resolution = resolutions[index];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetMotionBlur(bool blur) {
+        Blur.active = blur;
+    }
+
+    public void SetFullscreen(bool fullscreen) {
+        Screen.fullScreen = fullscreen;
+    }
+    
+    // Sound Controller
+
+    public void PlaySound(string sound) {
+        switch (sound) {
+            case "Tap":
+                Controller.clip = Sounds[0];
+                Controller.Play();
+                break;
+            case "Spawn":
+                Controller.clip = Sounds[1];
+                Controller.Play();
+                break;
+            case "Damage":
+                Controller.clip = Sounds[2];
+                Controller.Play();
+                break;
+        }
+    }
+    
+    public void SetMasterVolume(float volume) {
+        MasterVolume.audioMixer.SetFloat("Master", Mathf.Lerp(-80, 0, volume));
+    }
+    
+    public void SetMusicVolume(float volume) {
+        MasterVolume.audioMixer.SetFloat("Music", Mathf.Lerp(-80, 0, volume));
+    }
+
+    public void SetSoundVolume(float volume) {
+        MasterVolume.audioMixer.SetFloat("Sounds", Mathf.Lerp(-80, 0, volume));
     }
     
     // Etc
@@ -233,54 +308,21 @@ public class Menu : MonoBehaviour {
         isPaused = false;
     }
     
-    // Settings
+    // Aphaleon
 
-    public void SetQuality(int index) {
-        index = QualityDropdown.value;
-        QualitySettings.SetQualityLevel(index, true);
-    }
-
-    public void SetResolution(int index) {
-        Resolution resolution = resolutions[index];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
-
-    public void SetMotionBlur(bool blur) {
-        PostProcess.GetComponent<MotionBlur>().active = blur;
-    }
-
-    public void SetFullscreen(bool fullscreen) {
-        Screen.fullScreen = fullscreen;
+    public void AphaleonMenus() {
+        Cursor.visible = true;
+        
+        AphaleonMenu.SetActive(true);
+        Overlay.SetActive(false);
+        isPaused = true;
     }
     
-    // Sound Controller
-
-    public void PlaySound(string sound) {
-        switch (sound) {
-            case "Tap":
-                Controller.clip = Sounds[0];
-                Controller.Play();
-                break;
-            case "Spawn":
-                Controller.clip = Sounds[1];
-                Controller.Play();
-                break;
-            case "Damage":
-                Controller.clip = Sounds[2];
-                Controller.Play();
-                break;
-        }
-    }
-    
-    public void SetMasterVolume(float volume) {
-        MasterVolume.audioMixer.SetFloat("Master", Mathf.Lerp(-80, 0, volume));
-    }
-    
-    public void SetMusicVolume(float volume) {
-        MasterVolume.audioMixer.SetFloat("Music", Mathf.Lerp(-80, 0, volume));
-    }
-
-    public void SetSoundVolume(float volume) {
-        MasterVolume.audioMixer.SetFloat("Sounds", Mathf.Lerp(-80, 0, volume));
+    public void AphaleonMenusClose() {
+        Cursor.visible = false;
+        
+        AphaleonMenu.SetActive(false);
+        Overlay.SetActive(true);
+        isPaused = false;
     }
 }

@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Ados : MonoBehaviour {
+public class Aphaleon : MonoBehaviour {
     private GameObject Menu;
     private Animator Anim;
 
@@ -11,19 +13,17 @@ public class Ados : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if (other.tag == "Player") {
-            Anim.SetBool("isActive", true);
-            
             if (Input.GetKeyDown(KeyCode.E)) {
                 Menu = GameObject.Find("Dungeon Controller");
-                Menu.GetComponent<Menu>().AdosMenus();
+                Menu.GetComponent<Menu>().AphaleonMenus();
             }
         }
     }
-    
+
     private void OnTriggerExit(Collider other) {
         if (other.tag == "Player") {
             Menu = GameObject.Find("Dungeon Controller");
-            Menu.GetComponent<Menu>().AdosMenusClose();
+            Menu.GetComponent<Menu>().AphaleonMenusClose();
         }
     }
 }

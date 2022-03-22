@@ -3,34 +3,38 @@
   <component name="ChangeListManager">
     <list default="true" id="fc24536f-9dbb-4e68-9124-91a87f4813ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Ados/Ados.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Ados/Ados.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/EffectExamples/FireExplosionEffects/Materials/PlasmaExplosionParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/EffectExamples/FireExplosionEffects/Materials/PlasmaExplosionParticle.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/Spawner.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/Spawner.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/SoundController.mixer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/SoundController.mixer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/sword.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/sword.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/after_slider.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/after_slider.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/before_slider.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/before_slider.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/slider_cap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/slider_cap.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R0.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R12.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R13.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -94,7 +98,7 @@
       <workItem from="1647642517014" duration="6706000" />
       <workItem from="1647695229678" duration="23132000" />
       <workItem from="1647781477179" duration="5569000" />
-      <workItem from="1647787845061" duration="35300000" />
+      <workItem from="1647787845061" duration="46139000" />
     </task>
     <servers />
   </component>

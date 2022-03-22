@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
@@ -15,9 +16,15 @@ public class CameraFollow : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0f, -135f, 0f);
     }
 
-    private void Update() {
-        Target = GameObject.FindWithTag("Player");
+    private void Start() {
+        FindPlayer();
+    }
 
+    private void FindPlayer() {
+        Target = GameObject.FindWithTag("Player");
+    }
+
+    private void Update() {
         if (Input.GetKeyDown(KeyCode.Q) && isZoomed == false) {
             isZoomed = true;
         } else if (Input.GetKeyDown(KeyCode.Q) && isZoomed) {
@@ -27,15 +34,21 @@ public class CameraFollow : MonoBehaviour {
         if (isZoomed == false) {
             if (Target) {
                 transform.position = Vector3.SmoothDamp(transform.position, Target.transform.position + Offset, ref Velocity, 0.18f, 40);
+            } else {
+                FindPlayer();
             }
         } else if (isCharacterContact == true) {
             if (Target) {
                 transform.position = Target.transform.position + CharacterOffset;
                 transform.rotation = Quaternion.Euler(30f, 15f, 0f);
+            } else {
+                FindPlayer();
             }
         } else {
             if (Target) {
                 transform.position = Vector3.SmoothDamp(transform.position, Target.transform.position + ZoomOffset, ref Velocity, 0.18f, 40);
+            } else {
+                FindPlayer();
             }
         }
     }

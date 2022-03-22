@@ -2148,6 +2148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2476683578301689922}
   - component: {fileID: 2415267224008771373}
+  - component: {fileID: 417581782331038527}
   m_Layer: 0
   m_Name: "\u0433\u043E\u043B\u043E\u0432\u0430"
   m_TagString: Untagged
@@ -2249,6 +2250,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000290134, y: 0.018631406, z: 0.0005132593}
     m_Extent: {x: 0.025021031, y: 0.031827558, z: 0.023084583}
   m_DirtyAABB: 0
+--- !u!65 &417581782331038527
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5190957807306152083}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1727983, y: 0.28483608, z: 0.18022303}
+  m_Center: {x: 0, y: -0.08901272, z: 5.148665e-16}
 --- !u!1 &5325866185297597891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,6 +2467,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6361368112098325848}
+  - component: {fileID: 4704719927341594698}
+  - component: {fileID: 6541948907315424073}
   m_Layer: 0
   m_Name: Aphaleon
   m_TagString: Untagged
@@ -2476,6 +2492,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4704719927341594698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981851455323008994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bdb2084b650548b3c2409ba82d2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &6541948907315424073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981851455323008994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 70, y: 30, z: 70}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6374456357738611387
 GameObject:
   m_ObjectHideFlags: 0

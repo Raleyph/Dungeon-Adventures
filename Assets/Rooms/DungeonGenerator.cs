@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class DungeonGenerator : MonoBehaviour {
     public class Cell {
@@ -31,6 +32,7 @@ public class DungeonGenerator : MonoBehaviour {
     public int Level;
     
     public GameObject PlayerPrefab;
+    public Light MainLight;
 
     List<Cell> board;
 
@@ -152,5 +154,9 @@ public class DungeonGenerator : MonoBehaviour {
         MazeGenerator();
         Level++;
         Instantiate(PlayerPrefab, new Vector3(0f, 1.6f, 0f), Quaternion.identity);
+        
+        if (MainLight.intensity != 0) {
+            MainLight.intensity -= 0.05f;
+        }
     }
 }

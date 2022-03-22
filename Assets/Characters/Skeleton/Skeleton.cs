@@ -9,8 +9,11 @@ public class Skeleton : MonoBehaviour {
     private GameObject Player;
     public bool isActive;
 
+    public int health;
+
     private void Start() {
         Player = GameObject.FindWithTag("Player");
+        health = 100;
     }
 
     void Update() {
@@ -19,6 +22,10 @@ public class Skeleton : MonoBehaviour {
             Agent.GetComponent<Animator>().SetBool("Move", true);
         } else {
             Agent.GetComponent<Animator>().SetBool("Move", false);
+        }
+
+        if (health <= 0) {
+            Death();
         }
     }
 
@@ -30,5 +37,9 @@ public class Skeleton : MonoBehaviour {
                 isActive = false;
             }
         }
+    }
+
+    private void Death() {
+        Destroy(gameObject);
     }
 }
