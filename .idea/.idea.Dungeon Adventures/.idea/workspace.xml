@@ -4,21 +4,16 @@
     <list default="true" id="fc24536f-9dbb-4e68-9124-91a87f4813ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraFollow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Ados/Ados.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Ados/Ados.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R0.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R12.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R13.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/healthbar.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/healthbar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +93,7 @@
       <workItem from="1647642517014" duration="6706000" />
       <workItem from="1647695229678" duration="23132000" />
       <workItem from="1647781477179" duration="5569000" />
-      <workItem from="1647787845061" duration="46139000" />
+      <workItem from="1647787845061" duration="68612000" />
     </task>
     <servers />
   </component>

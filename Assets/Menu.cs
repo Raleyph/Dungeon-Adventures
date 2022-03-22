@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
@@ -11,8 +13,9 @@ public class Menu : MonoBehaviour {
     public GameObject PauseMenu;
     public GameObject NextLevelmenu;
     public GameObject LooseMenu;
-    
+
     [Header("Character Menus")]
+    public GameObject Menus;
     public GameObject AdosMenu;
     public GameObject AphaleonMenu;
     public GameObject MichaelMenu;
@@ -29,13 +32,14 @@ public class Menu : MonoBehaviour {
     public Slider MusicSlider;
     public Slider VolumeSlider;
     public Dropdown QualityDropdown;
+    public Dropdown ResolutionDropdown;
+    public Dropdown AADropdown;
     public PostProcessVolume PostProcess;
     public GameObject SpotLight;
     public GameObject Camera;
 
     Resolution[] resolutions;
 
-    private GameObject Player;
     private DungeonGenerator DG;
     
     private MotionBlur Blur;
@@ -61,19 +65,47 @@ public class Menu : MonoBehaviour {
         PostProcess.profile.TryGetSettings(out DOF);
 
         DG = GetComponent<DungeonGenerator>();
+        
+        PlayerPrefs.DeleteKey("Health");
+        
+        // Show Resolutions
+        ResolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        resolutions = Screen.resolutions;
+        int currentResolutionIndex = 0;
+        
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + " x " + 
+                            resolutions[i].height;
+            options.Add(option);
+            if (resolutions[i].width == Screen.currentResolution.width 
+                && resolutions[i].height == Screen.currentResolution.height)
+                currentResolutionIndex = i;
+        }
+        
+        ResolutionDropdown.AddOptions(options);
+        ResolutionDropdown.RefreshShownValue();
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false && isStarted && isLoosed == false) {
-            Pause();
-        } else if (Input.GetKeyDown(KeyCode.Escape) && isPaused) {
-            Resume();
-        } else if (Input.GetKeyDown(KeyCode.Space) && MainMenu) {
-            Play();
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (!isPaused && isStarted && !isLoosed) {
+                Pause();
+            } else if (isPaused && !Menus) {
+                Resume();
+            } else if (AdosMenu || AphaleonMenu || MichaelMenu) {
+                AdosMenusClose();
+                AphaleonMenusClose();
+            }
+        } else if (Input.GetKeyDown(KeyCode.Space)) {
+            if (MainMenu) {
+                Play();
+            }
         }
 
-        if (HealthBar && Player) {
-            HealthBar.value = Player.GetComponent<PlayerController>().health;
+        if (HealthBar && !isPaused && !isLoosed && isStarted) {
+            HealthBar.value = PlayerPrefs.GetInt("Health");
         }
 
         if (Level) {
@@ -98,7 +130,6 @@ public class Menu : MonoBehaviour {
         Overlay.SetActive(true);
         isStarted = true;
         Camera.transform.rotation = Quaternion.Euler(60f, 0f, 0f);
-        Player = GameObject.FindWithTag("Player");
     }
     
     public void Exit() {
@@ -135,6 +166,7 @@ public class Menu : MonoBehaviour {
         
         // destroy Sam
         Destroy(GameObject.FindWithTag("Player"));
+        PlayerPrefs.DeleteKey("Health");
         
         // destroy rooms
         var rooms = GameObject.FindGameObjectsWithTag("Room");
@@ -235,6 +267,11 @@ public class Menu : MonoBehaviour {
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
+    public void SetAntiAliasing(int index) {
+        index = AADropdown.value;
+        QualitySettings.antiAliasing = index;
+    }
+
     public void SetMotionBlur(bool blur) {
         Blur.active = blur;
     }
@@ -283,18 +320,19 @@ public class Menu : MonoBehaviour {
         isStarted = false;
         Overlay.SetActive(false);
         LooseMenu.SetActive(true);
-        Player.GetComponent<PlayerController>().enabled = false;
+        PlayerPrefs.DeleteKey("Health");
     }
     
     public void NameRoom(string room) {
         RoomName.text = room;
     }
-    
+
     // Ados
 
     public void AdosMenus() {
         Cursor.visible = true;
         
+        Menus.SetActive(true);
         AdosMenu.SetActive(true);
         Overlay.SetActive(false);
         isPaused = true;
@@ -303,6 +341,7 @@ public class Menu : MonoBehaviour {
     public void AdosMenusClose() {
         Cursor.visible = false;
 
+        Menus.SetActive(false);
         AdosMenu.SetActive(false);
         Overlay.SetActive(true);
         isPaused = false;
@@ -313,6 +352,7 @@ public class Menu : MonoBehaviour {
     public void AphaleonMenus() {
         Cursor.visible = true;
         
+        Menus.SetActive(true);
         AphaleonMenu.SetActive(true);
         Overlay.SetActive(false);
         isPaused = true;
@@ -321,6 +361,7 @@ public class Menu : MonoBehaviour {
     public void AphaleonMenusClose() {
         Cursor.visible = false;
         
+        Menus.SetActive(false);
         AphaleonMenu.SetActive(false);
         Overlay.SetActive(true);
         isPaused = false;

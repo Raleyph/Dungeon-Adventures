@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     private Rigidbody rb;
     private Vector3 moveSpeed;
 
-    public int health;
+    public int health = 0;
     public int armor;
     public int coins;
 
@@ -23,7 +24,14 @@ public class PlayerController : MonoBehaviour {
         
         rb = GetComponent<Rigidbody>();
         Anim = GetComponent<Animator>();
-        health = 100;
+
+        if (PlayerPrefs.GetInt("Health") <= 0) {
+            health = 100;
+            PlayerPrefs.SetInt("Health", health);
+        } else {
+            health = PlayerPrefs.GetInt("Health");
+        }
+        
     }
 
     private void Update() {
@@ -38,7 +46,7 @@ public class PlayerController : MonoBehaviour {
             Anim.SetBool("Move", false);
         }
 
-        if (health <= 0) {
+        if (health <= 0 && Time.timeScale == 1) {
             Death();
         }
     }
@@ -88,14 +96,16 @@ public class PlayerController : MonoBehaviour {
                     health -= 50;
                     break;
             }
+            
+            PlayerPrefs.SetInt("Health", health);
         }
         
         Menu.GetComponent<Menu>().PlaySound("Damage");
     }
 
     public void Death() {
-        //Menu = GameObject.FindWithTag("GameController");
         Menu.GetComponent<Menu>().Loose();
+        this.enabled = false;
     }
 
     public void HealthPosion() {

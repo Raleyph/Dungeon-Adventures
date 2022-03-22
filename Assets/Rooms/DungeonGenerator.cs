@@ -154,7 +154,7 @@ public class DungeonGenerator : MonoBehaviour {
         MazeGenerator();
         Level++;
         Instantiate(PlayerPrefab, new Vector3(0f, 1.6f, 0f), Quaternion.identity);
-        
+
         if (MainLight.intensity != 0) {
             MainLight.intensity -= 0.05f;
         }

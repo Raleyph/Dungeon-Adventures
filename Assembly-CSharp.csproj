@@ -76,6 +76,7 @@
      <Compile Include="Assets\Characters\Holem\Holem.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\GunAim.cs" />
      <Compile Include="Assets\Characters\Gnome\Aphaleon.cs" />
+     <Compile Include="Assets\Characters\Sam\Atack.cs" />
      <None Include="Assets\Effects\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Programs/Unity/2020.3.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

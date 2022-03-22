@@ -65,13 +65,15 @@ public class RoomBehaviour : MonoBehaviour {
     }
 
     private void Update() {
-        if (isActiveRoom) {
-            for (int i = 0; i < SkeletonsInRoom.Count; i++) {
-                SkeletonsInRoom[i].GetComponent<Skeleton>().isActive = true;
-            }
-        } else {
-            for (int i = 0; i < SkeletonsInRoom.Count; i++) {
-                SkeletonsInRoom[i].GetComponent<Skeleton>().isActive = false;
+        if (SkeletonsInRoom.Count != 0) {
+            if (isActiveRoom) {
+                for (int i = 0; i < SkeletonsInRoom.Count; i++) {
+                    SkeletonsInRoom[i].GetComponent<Skeleton>().isActive = true;
+                }
+            } else {
+                for (int i = 0; i < SkeletonsInRoom.Count; i++) {
+                    SkeletonsInRoom[i].GetComponent<Skeleton>().isActive = false;
+                }
             }
         }
     }
