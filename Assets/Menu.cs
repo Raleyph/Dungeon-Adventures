@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,7 @@ public class Menu : MonoBehaviour {
     public Slider HealthBar;
     public Text Level;
     public Text RoomName;
+    public Slider MasterSlider;
     public Slider MusicSlider;
     public Slider VolumeSlider;
     public Dropdown QualityDropdown;
@@ -44,6 +46,8 @@ public class Menu : MonoBehaviour {
     
     private MotionBlur Blur;
     private DepthOfField DOF;
+    
+    private int[] aliasing = new int[]{0, 2, 4, 8};
 
     private bool isStarted = false;
     private bool isPaused = false;
@@ -67,15 +71,16 @@ public class Menu : MonoBehaviour {
         DG = GetComponent<DungeonGenerator>();
         
         PlayerPrefs.DeleteKey("Health");
-        
-        // Show Resolutions
+        BuildSettings();
+    }
+
+    public void BuildSettings() {
         ResolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
         resolutions = Screen.resolutions;
         int currentResolutionIndex = 0;
         
-        for (int i = 0; i < resolutions.Length; i++)
-        {
+        for (int i = 0; i < resolutions.Length; i++) {
             string option = resolutions[i].width + " x " + 
                             resolutions[i].height;
             options.Add(option);
@@ -84,8 +89,17 @@ public class Menu : MonoBehaviour {
                 currentResolutionIndex = i;
         }
         
+        for(int i = 0; i < aliasing.Length; i++) {
+            Dropdown.OptionData option = new Dropdown.OptionData();
+            option.text = (aliasing[i] == 0) ? "Off" : aliasing[i] + "x Multi Sampling";
+            AADropdown.options.Add(option);
+            if(aliasing[i] == QualitySettings.antiAliasing) AADropdown.value = i;
+        }
+        
         ResolutionDropdown.AddOptions(options);
         ResolutionDropdown.RefreshShownValue();
+        
+        LoadSettings(currentResolutionIndex);
     }
 
     private void Update() {
@@ -200,6 +214,7 @@ public class Menu : MonoBehaviour {
             PauseMenu.SetActive(false);
         } else {
             MainMenu.SetActive(false);
+            DOF.active = true;
         }
         SettingsMenu.SetActive(true);
     }
@@ -209,8 +224,10 @@ public class Menu : MonoBehaviour {
             PauseMenu.SetActive(true);
         } else {
             MainMenu.SetActive(true);
+            DOF.active = false;
         }
         SettingsMenu.SetActive(false);
+        SaveSettings();
     }
     
     // New Layer
@@ -272,12 +289,84 @@ public class Menu : MonoBehaviour {
         QualitySettings.antiAliasing = index;
     }
 
+    public void Vsync(bool vsync) {
+        QualitySettings.vSyncCount = Convert.ToInt32(vsync);
+    }
+
     public void SetMotionBlur(bool blur) {
         Blur.active = blur;
     }
 
     public void SetFullscreen(bool fullscreen) {
         Screen.fullScreen = fullscreen;
+    }
+
+    public void SaveSettings() {
+        PlayerPrefs.SetInt("QualitySettings", QualityDropdown.value);
+        PlayerPrefs.SetInt("ResolutionSettings", ResolutionDropdown.value);
+        PlayerPrefs.SetInt("AntiAlisingSettings", AADropdown.value);
+        PlayerPrefs.SetInt("Vsnyc", QualitySettings.vSyncCount);
+        PlayerPrefs.SetInt("MotionBlurSettings", Convert.ToInt32(Blur.active));
+        PlayerPrefs.SetInt("FullscreenSettings", Convert.ToInt32(Screen.fullScreen));
+        PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+        PlayerPrefs.SetFloat("SoundVolume", soundVolume);
+        PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+    }
+
+    public void LoadSettings(int resolutionIndex) {
+        if (PlayerPrefs.HasKey("QualitySettings")) {
+            QualityDropdown.value = PlayerPrefs.GetInt("QualitySettings");
+        } else {
+            QualityDropdown.value = 0;
+        }
+
+        if (PlayerPrefs.HasKey("ResolutionSettings")) {
+            ResolutionDropdown.value = PlayerPrefs.GetInt("ResolutionSettings");
+        } else {
+            ResolutionDropdown.value = resolutionIndex;
+        }
+
+        if (PlayerPrefs.HasKey("AntiAlisingSettings")) {
+            AADropdown.value = PlayerPrefs.GetInt("AntiAlisingSettings");
+        } else {
+            AADropdown.value = 0;
+        }
+
+        if (PlayerPrefs.HasKey("FullscreenSettings")) {
+            Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenSettings"));
+        } else {
+            Screen.fullScreen = true;
+        }
+
+        if (PlayerPrefs.HasKey("Vsync")) {
+            QualitySettings.vSyncCount = PlayerPrefs.GetInt("Vsync");
+        } else {
+            QualitySettings.vSyncCount = 0;
+        }
+
+        if (PlayerPrefs.HasKey("MotionBlurSettings")) {
+            Blur.active = Convert.ToBoolean(PlayerPrefs.GetInt("MotionBlurSettings"));
+        } else {
+            Blur.active = true;
+        }
+
+        if (PlayerPrefs.HasKey("MasterVolume")) {
+            MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+        } else {
+            MasterSlider.value = 100;
+        }
+        
+        if (PlayerPrefs.HasKey("SoundVolume")) {
+            VolumeSlider.value = PlayerPrefs.GetFloat("SoundVolume");
+        } else {
+            VolumeSlider.value = 100;
+        }
+        
+        if (PlayerPrefs.HasKey("MusicVolume")) {
+            MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        } else {
+            MusicSlider.value = 100;
+        }
     }
     
     // Sound Controller
@@ -301,14 +390,17 @@ public class Menu : MonoBehaviour {
     
     public void SetMasterVolume(float volume) {
         MasterVolume.audioMixer.SetFloat("Master", Mathf.Lerp(-80, 0, volume));
+        masterVolume = volume;
     }
     
     public void SetMusicVolume(float volume) {
         MasterVolume.audioMixer.SetFloat("Music", Mathf.Lerp(-80, 0, volume));
+        musicVolume = volume;
     }
 
     public void SetSoundVolume(float volume) {
         MasterVolume.audioMixer.SetFloat("Sounds", Mathf.Lerp(-80, 0, volume));
+        soundVolume = volume;
     }
     
     // Etc

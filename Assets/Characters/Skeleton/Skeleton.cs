@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class Skeleton : MonoBehaviour {
@@ -10,6 +11,8 @@ public class Skeleton : MonoBehaviour {
     public bool isActive;
 
     public int health;
+    public GameObject Canvas;
+    public Slider HealthBar;
 
     private void Start() {
         Player = GameObject.FindWithTag("Player");
@@ -22,6 +25,10 @@ public class Skeleton : MonoBehaviour {
             Agent.GetComponent<Animator>().SetBool("Move", true);
             
             transform.LookAt(Player.transform);
+
+            if (Canvas) {
+                HealthBar.value = health;
+            }
         } else {
             Agent.GetComponent<Animator>().SetBool("Move", false);
         }
@@ -34,7 +41,8 @@ public class Skeleton : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             if (Vector3.Distance(transform.position, other.transform.position) < 10f) {
-                other.GetComponent<PlayerController>().Damage(2);
+                other.GetComponent<PlayerController>().Damage(1);
+                Canvas.SetActive(true);
             }
         }
     }
@@ -52,7 +60,7 @@ public class Skeleton : MonoBehaviour {
     public void Damage(int type) {
         switch (type) {
             case 1:
-                health -= 5;
+                health -= 25;
                 break;
         }
     }

@@ -44,6 +44,7 @@ public class DungeonGenerator : MonoBehaviour {
         MazeGenerator();
         Instantiate(PlayerPrefab, new Vector3(0f, 1.6f, 0f), Quaternion.identity);
         Level = 1;
+        MainLight.intensity = 0.4f;
     }
 
     void GenerateDungeon() {

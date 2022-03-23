@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
     public GameObject Target;
+
+    public Vector3[] Offset;
+    public Vector3[] Quat;
+    
     private Vector3 Velocity;
-    private Vector3 Offset = new Vector3(0f, 12f, -6f);
-    private Vector3 ZoomOffset = new Vector3(0f, 8f, -3f);
+    //private Vector3 Offset = new Vector3(0f, 12f, -6f);
     private Vector3 StartOffset = new Vector3(3f, 1.5f, 3f);
-    private Vector3 CharacterOffset = new Vector3(2.5f, 4.5f, 0f);
-    private bool isZoomed = false;
-    public bool isCharacterContact = false;
+    
+    public int zoomType;
 
     private void Awake() {
         transform.position = StartOffset;
@@ -18,6 +20,7 @@ public class CameraFollow : MonoBehaviour {
 
     private void Start() {
         FindPlayer();
+        zoomType = 0;
     }
 
     private void FindPlayer() {
@@ -25,28 +28,18 @@ public class CameraFollow : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Q) && isZoomed == false) {
-            isZoomed = true;
-        } else if (Input.GetKeyDown(KeyCode.Q) && isZoomed) {
-            isZoomed = false;
-        }
+        if (Time.timeScale == 1) {
+            if (Input.GetKeyDown(KeyCode.Q) && zoomType >= 0) {
+                if (zoomType <= 1) {
+                    zoomType++;
+                } else {
+                    zoomType = 0;
+                }
+            }
 
-        if (isZoomed == false) {
             if (Target) {
-                transform.position = Vector3.SmoothDamp(transform.position, Target.transform.position + Offset, ref Velocity, 0.18f, 40);
-            } else {
-                FindPlayer();
-            }
-        } else if (isCharacterContact == true) {
-            if (Target) {
-                transform.position = Target.transform.position + CharacterOffset;
-                transform.rotation = Quaternion.Euler(30f, 15f, 0f);
-            } else {
-                FindPlayer();
-            }
-        } else {
-            if (Target) {
-                transform.position = Vector3.SmoothDamp(transform.position, Target.transform.position + ZoomOffset, ref Velocity, 0.18f, 40);
+                transform.position = Vector3.SmoothDamp(transform.position, Target.transform.position + Offset[zoomType], ref Velocity, 0.18f, 40);
+                transform.rotation = Quaternion.Euler(Quat[zoomType]);
             } else {
                 FindPlayer();
             }

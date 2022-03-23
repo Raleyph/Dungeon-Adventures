@@ -96,10 +96,8 @@ public class PlayerController : MonoBehaviour {
                     health -= 50;
                     break;
             }
-            
             PlayerPrefs.SetInt("Health", health);
         }
-        
         Menu.GetComponent<Menu>().PlaySound("Damage");
     }
 

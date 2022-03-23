@@ -1470,6 +1470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4473bfbe2257a241b56b8a0a1c94d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sam: {fileID: 4808903819595809134}
+  SamAnim: {fileID: 4407402109989257227}
 --- !u!135 &5882575637520606161
 SphereCollider:
   m_ObjectHideFlags: 0
