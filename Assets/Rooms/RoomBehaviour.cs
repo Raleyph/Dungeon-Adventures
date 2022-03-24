@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -38,11 +39,17 @@ public class RoomBehaviour : MonoBehaviour {
                 }
                 
                 if (HaveSpawner) {
-                    StartCoroutine(Spawn());
                     isActiveRoom = true;
+                    StartCoroutine(Spawn());
+                    
+                    if (SkeletonsInRoom.Count != 0) {
+                        for (int i = 0; i < SkeletonsInRoom.Count; i++) {
+                            SkeletonsInRoom[i].Active();
+                        }
+                    }
                 }
             }
-
+            
             if (other.tag == "Skeleton") {
                 SkeletonsInRoom.Add(other.GetComponent<Skeleton>());
             }
@@ -52,37 +59,21 @@ public class RoomBehaviour : MonoBehaviour {
     private void OnTriggerExit(Collider other) {
         if (Time.timeScale == 1) {
             if (other.tag == "Player" && HaveSpawner) {
-                StopCoroutine(Spawn());
                 isActiveRoom = false;
+                StopCoroutine(Spawn());
+
+                if (SkeletonsInRoom.Count != 0) {
+                    for (int i = 0; i < SkeletonsInRoom.Count; i++) {
+                        SkeletonsInRoom[i].Deactive();
+                    }
+                }
             }
         }
     }
 
-    IEnumerator Spawn() {
+    private IEnumerator Spawn() {
         Instantiate(Enemy[SpawnerType], Spawners[Random.Range(0, Spawners.Length)].position, Quaternion.identity);
         DungeonController.GetComponent<Menu>().PlaySound("Spawn");
-        yield return new WaitForSeconds(1f);
-    }
-
-    private void Update() {
-        if (SkeletonsInRoom.Count != 0) {
-            if (isActiveRoom) {
-                for (int i = 0; i < SkeletonsInRoom.Count; i++) {
-                    if (SkeletonsInRoom[i]) {
-                        SkeletonsInRoom[i].GetComponent<Skeleton>().isActive = true;
-                    } else {
-                        SkeletonsInRoom.RemoveAt(i);
-                    }
-                }
-            } else {
-                for (int i = 0; i < SkeletonsInRoom.Count; i++) {
-                    if (SkeletonsInRoom[i]) {
-                        SkeletonsInRoom[i].GetComponent<Skeleton>().isActive = false;
-                    } else {
-                        SkeletonsInRoom.RemoveAt(i);
-                    }
-                }
-            }
-        }
+        yield return new WaitForSeconds(3f);
     }
 }

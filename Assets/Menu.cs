@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour {
     public GameObject PauseMenu;
     public GameObject NextLevelmenu;
     public GameObject LooseMenu;
+    public GameObject FAQmenu;
 
     [Header("Character Menus")]
     public GameObject Menus;
@@ -37,7 +38,7 @@ public class Menu : MonoBehaviour {
     public Dropdown ResolutionDropdown;
     public Dropdown AADropdown;
     public PostProcessVolume PostProcess;
-    public GameObject SpotLight;
+    public Light SpotLight;
     public GameObject Camera;
 
     Resolution[] resolutions;
@@ -106,9 +107,9 @@ public class Menu : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!isPaused && isStarted && !isLoosed) {
                 Pause();
-            } else if (isPaused && !Menus) {
+            } else if (isPaused && isStarted) {
                 Resume();
-            } else if (AdosMenu || AphaleonMenu || MichaelMenu) {
+            } else if ((AdosMenu || AphaleonMenu || MichaelMenu) && isPaused) {
                 AdosMenusClose();
                 AphaleonMenusClose();
             }
@@ -128,6 +129,8 @@ public class Menu : MonoBehaviour {
 
         if (isPaused || isLoosed) {
             DOF.active = true;
+        } else if ((SettingsMenu.activeSelf || FAQmenu.activeSelf) && !isPaused) {
+            DOF.active = true;
         } else {
             DOF.active = false;
         }
@@ -139,7 +142,7 @@ public class Menu : MonoBehaviour {
         Cursor.visible = false;
         Time.timeScale = 1;
 
-        SpotLight.SetActive(false);
+        SpotLight.enabled = false;
         MainMenu.SetActive(false);
         Overlay.SetActive(true);
         isStarted = true;
@@ -201,8 +204,8 @@ public class Menu : MonoBehaviour {
         isStarted = false;
         isPaused = false;
         isLoosed = false;
-        
-        SpotLight.SetActive(true);
+
+        SpotLight.enabled = true;
         MainMenu.SetActive(true);
         LooseMenu.SetActive(false);
         PauseMenu.SetActive(false);
@@ -353,19 +356,19 @@ public class Menu : MonoBehaviour {
         if (PlayerPrefs.HasKey("MasterVolume")) {
             MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         } else {
-            MasterSlider.value = 100;
+            MasterSlider.value = 1f;
         }
         
         if (PlayerPrefs.HasKey("SoundVolume")) {
             VolumeSlider.value = PlayerPrefs.GetFloat("SoundVolume");
         } else {
-            VolumeSlider.value = 100;
+            VolumeSlider.value = 1f;
         }
         
         if (PlayerPrefs.HasKey("MusicVolume")) {
             MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         } else {
-            MusicSlider.value = 100;
+            MusicSlider.value = 1f;
         }
     }
     

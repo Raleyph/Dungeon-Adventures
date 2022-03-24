@@ -1,22 +1,22 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     private Rigidbody rb;
     private Vector3 moveSpeed;
-
-    public int health = 0;
-    public int armor;
-    public int coins;
-
-    private bool isArmored = false;
-    
-    public float MaxMoveSpeed = 8;
-    private float dashingTimeLeft;
-
     private GameObject Menu;
     private CharacterController controllerComponent;
     private Animator Anim;
+
+    public int health = 100;
+    public int armor;
+    public int coins;
+    
+    private bool isArmored = false;
+
+    private float MaxMoveSpeed = 8;
+    private float dashingTimeLeft;
 
     private void Start() {
         Menu = GameObject.FindWithTag("GameController");
@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour {
 
         if (health <= 0 && Time.timeScale == 1) {
             Death();
+        }
+
+        if (Input.GetMouseButtonDown(0)) {
+            Anim.SetTrigger("Atack");
         }
     }
 

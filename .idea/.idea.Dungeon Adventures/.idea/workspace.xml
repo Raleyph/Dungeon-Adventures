@@ -3,19 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="fc24536f-9dbb-4e68-9124-91a87f4813ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraFollow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Atack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/Atack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Atack.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Atack.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/anim/atack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/anim/atack.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/anim/atack1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/anim/atack1.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/anim/walk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/anim/walk.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton 1.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R2.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +106,7 @@
       <workItem from="1647787845061" duration="72994000" />
       <workItem from="1647990545031" duration="596000" />
       <workItem from="1647992201758" duration="5372000" />
-      <workItem from="1648041563464" duration="8962000" />
+      <workItem from="1648041563464" duration="29415000" />
     </task>
     <servers />
   </component>
@@ -119,13 +124,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Menu.cs</url>
-          <line>152</line>
+          <line>155</line>
           <properties documentPath="D:\Raleyph Technologies\Game Development\Dungeon Adventures\Assets\Menu.cs" initialLine="144" containingFunctionPresentation="method 'GitHub'">
             <startOffsets>
-              <option value="4485" />
+              <option value="4641" />
             </startOffsets>
             <endOffsets>
-              <option value="4486" />
+              <option value="4642" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />

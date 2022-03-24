@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7109519229967509030}
   m_Layer: 8
-  m_Name: Spawner (2)
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773821927036057244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.92, y: 0, z: -7.98}
+  m_LocalPosition: {x: 5.56, y: 0, z: -7.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5489872915320484733}
@@ -660,7 +660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2668698383713270705}
   m_Layer: 8
-  m_Name: Spawner (1)
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1344,7 +1344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6166960500933976327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.28, y: 0, z: 7.84}
+  m_LocalPosition: {x: 4.54, y: 0, z: 7.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5489872915320484733}

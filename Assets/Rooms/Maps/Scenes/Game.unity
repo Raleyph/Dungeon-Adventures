@@ -3683,6 +3683,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 1656208501}
   NextLevelmenu: {fileID: 2100950825}
   LooseMenu: {fileID: 700743727}
+  FAQmenu: {fileID: 1244579522}
   Menus: {fileID: 1255664742}
   AdosMenu: {fileID: 752922441}
   AphaleonMenu: {fileID: 1714550799}
@@ -3703,7 +3704,7 @@ MonoBehaviour:
   ResolutionDropdown: {fileID: 29239631}
   AADropdown: {fileID: 745761847}
   PostProcess: {fileID: 963194230}
-  SpotLight: {fileID: 1635932397}
+  SpotLight: {fileID: 1635932398}
   Camera: {fileID: 963194225}
 --- !u!114 &663293153
 MonoBehaviour:

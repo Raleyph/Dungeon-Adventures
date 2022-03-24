@@ -507,6 +507,7 @@ MonoBehaviour:
   NameRoom: Mine
   SpawnerType: 0
   HaveSpawner: 0
+  isActiveRoom: 0
 --- !u!65 &6997439775313341026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1464,11 +1465,11 @@ GameObject:
   - component: {fileID: 4143616794778845044}
   - component: {fileID: 7586091779180221552}
   - component: {fileID: 6438980718750479988}
-  - component: {fileID: 711319182845270975}
   - component: {fileID: 824615919447136195}
+  - component: {fileID: 8197783771140853480}
   m_Layer: 0
   m_Name: Room
-  m_TagString: Ground
+  m_TagString: LayerTriggerSam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1550,19 +1551,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 7525eba6615cfb14c998b935a022650b, type: 3}
---- !u!114 &711319182845270975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996621860135586061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e20ff23e5e88c468e52c43215606e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DungeonController: {fileID: 0}
 --- !u!65 &824615919447136195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1576,6 +1564,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 13, y: 20, z: 13}
   m_Center: {x: -1, y: 11, z: -1}
+--- !u!114 &8197783771140853480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996621860135586061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e20ff23e5e88c468e52c43215606e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DungeonController: {fileID: 0}
 --- !u!1001 &2507154026684734930
 PrefabInstance:
   m_ObjectHideFlags: 0

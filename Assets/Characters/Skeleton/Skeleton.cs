@@ -11,26 +11,36 @@ public class Skeleton : MonoBehaviour {
     public bool isActive;
 
     public int health;
+
+    public Animator Anim;
     public GameObject Canvas;
     public Slider HealthBar;
 
     private void Start() {
         Player = GameObject.FindWithTag("Player");
+        
         health = 100;
     }
 
     void Update() {
         if (isActive) {
-            Agent.SetDestination(Player.transform.position);
-            Agent.GetComponent<Animator>().SetBool("Move", true);
-            
-            transform.LookAt(Player.transform);
+            if (Vector3.Distance(transform.position, Player.transform.position) >= 2) {
+                Agent.enabled = true;
+                Agent.SetDestination(Player.transform.position);
+                Anim.SetBool("Move", true);
+                
+                transform.LookAt(Player.transform);
+            } else {
+                Agent.enabled = false;
+                Anim.SetBool("Move", false);
+            }
 
             if (Canvas) {
                 HealthBar.value = health;
             }
         } else {
-            Agent.GetComponent<Animator>().SetBool("Move", false);
+            Agent.enabled = false;
+            Anim.SetBool("Move", false);
         }
 
         if (health <= 0) {
@@ -38,23 +48,13 @@ public class Skeleton : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player") {
-            if (Vector3.Distance(transform.position, other.transform.position) < 10f) {
-                other.GetComponent<PlayerController>().Damage(1);
-                Canvas.SetActive(true);
-            }
-        }
+    public void Active() {
+        isActive = true;
+        Canvas.SetActive(true);
     }
 
-    private void OnTriggerStay(Collider other) {
-        if (other.tag == "Room") {
-            if (other.GetComponent<RoomBehaviour>().isActiveRoom == true) {
-                isActive = true;
-            } else {
-                isActive = false;
-            }
-        }
+    public void Deactive() {
+        isActive = false;
     }
 
     public void Damage(int type) {
