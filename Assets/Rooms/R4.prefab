@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1261322301685128084}
   - component: {fileID: 6878034454536333545}
   - component: {fileID: 3876669287535426496}
-  - component: {fileID: 165450693859471996}
   m_Layer: 0
   m_Name: "\u041A\u0443\u0431"
   m_TagString: Minecart
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &165450693859471996
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24474127731449782}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5987074, y: 1.0465685, z: 2.2087178}
-  m_Center: {x: -1.1641532e-10, y: -0.05409145, z: 0.0015861987}
 --- !u!1 &910267128257436007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,11 +1083,12 @@ MonoBehaviour:
   - {fileID: 7349497245958791308}
   - {fileID: 8467354459715615855}
   - {fileID: 4718015983929944867}
-  Spawners: []
   Enemy: []
+  Spawners: []
   NameRoom: Mine
   SpawnerType: 0
   HaveSpawner: 0
+  isActiveRoom: 0
 --- !u!65 &2651882272006699603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1268,9 +1255,10 @@ GameObject:
   - component: {fileID: 3768374692239559017}
   - component: {fileID: 8392048122926326153}
   - component: {fileID: 5887615693615255970}
+  - component: {fileID: 5923598355570900234}
   m_Layer: 0
   m_Name: minecart
-  m_TagString: Untagged
+  m_TagString: Minecart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1326,7 +1314,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241164f862abf940b075fd464555e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Change: 0.656
+  Change: 0.4
+--- !u!65 &5923598355570900234
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5130696985017917253}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5987074, y: 1.0465685, z: 2.2087178}
+  m_Center: {x: -1.1641532e-10, y: 0.34, z: 0.0015861987}
 --- !u!1 &5683366023825927221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241164f862abf940b075fd464555e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Change: 0.812
+  Change: 0.25
 --- !u!1 &8467354459715615855
 GameObject:
   m_ObjectHideFlags: 0

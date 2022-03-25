@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 5624804913983086458}
   - component: {fileID: 9163391914919492590}
   - component: {fileID: 5488621583799661140}
+  - component: {fileID: 356840961008833338}
   m_Layer: 0
   m_Name: Room
   m_TagString: Room
@@ -191,6 +192,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: aa3e5f64a3608c44c979a42eb3cb3f15, type: 3}
+--- !u!65 &356840961008833338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760435105377645835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 5, z: 10}
+  m_Center: {x: -1, y: 5, z: -1}
 --- !u!1 &2451206989993498771
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,11 +581,12 @@ MonoBehaviour:
   - {fileID: 510992252304448699}
   - {fileID: 6592486869730421912}
   - {fileID: 5293704989504394085}
-  Spawners: []
   Enemy: []
+  Spawners: []
   NameRoom: Altar
   SpawnerType: 0
   HaveSpawner: 0
+  isActiveRoom: 0
 --- !u!65 &5566211847296773754
 BoxCollider:
   m_ObjectHideFlags: 0

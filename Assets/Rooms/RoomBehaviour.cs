@@ -7,21 +7,43 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class RoomBehaviour : MonoBehaviour {
+    public enum enemyTypes {
+        Skeleton,
+        Holem,
+        Ork,
+        All
+    };
+
     public GameObject[] walls; // 0 - Up 1 - Down 2 - Right 3 - Left
     public GameObject[] doors;
     public GameObject[] Enemy;
-    private GameObject DungeonController;
     public Transform[] Spawners;
-
+    
+    public enemyTypes EnemyType = enemyTypes.Skeleton;
+    
     public string NameRoom;
-    public int SpawnerType;
     public bool HaveSpawner;
-    public bool isActiveRoom;
+    
+    private GameObject DungeonController;
+    private Menu Menu;
 
-    private List<Skeleton> SkeletonsInRoom = new List<Skeleton>();
+    private bool isActiveRoom;
+    private int SpawnerType;
+    private List<Enemy> EnemiesInRoom = new List<Enemy>();
 
     private void Awake() {
         DungeonController = GameObject.FindWithTag("GameController");
+        Menu = DungeonController.GetComponent<Menu>();
+    }
+
+    private void Start() {
+        if (EnemyType == enemyTypes.Skeleton) {
+            SpawnerType = 0;
+        } else if (EnemyType == enemyTypes.Holem) {
+            SpawnerType = 1;
+        } else if (EnemyType == enemyTypes.Ork) {
+            SpawnerType = 2;
+        }
     }
 
     public void UpdateRoom(bool[] status) {
@@ -35,23 +57,33 @@ public class RoomBehaviour : MonoBehaviour {
         if (Time.timeScale == 1) {
             if (other.tag == "Player") {
                 if (DungeonController) {
-                    DungeonController.GetComponent<Menu>().NameRoom(NameRoom);
+                    Menu.NameRoom(NameRoom);
                 }
-                
                 if (HaveSpawner) {
                     isActiveRoom = true;
                     StartCoroutine(Spawn());
-                    
-                    if (SkeletonsInRoom.Count != 0) {
-                        for (int i = 0; i < SkeletonsInRoom.Count; i++) {
-                            SkeletonsInRoom[i].Active();
+                    if (EnemiesInRoom.Count != 0) {
+                        for (int i = 0; i < EnemiesInRoom.Count; i++) {
+                            EnemiesInRoom[i].Active();
                         }
                     }
                 }
             }
-            
-            if (other.tag == "Skeleton") {
-                SkeletonsInRoom.Add(other.GetComponent<Skeleton>());
+            if (other.tag == "Enemy") {
+                EnemiesInRoom.Add(other.GetComponent<Enemy>());
+                other.GetComponent<Enemy>().Active();
+            }
+        }
+    }
+
+    private void Update() {
+        if (isActiveRoom) {
+            if (EnemiesInRoom.Count != 0) {
+                for (int i = 0; i < EnemiesInRoom.Count; i++) {
+                    if (!EnemiesInRoom[i]) {
+                        EnemiesInRoom.RemoveAt(i);
+                    }
+                }
             }
         }
     }
@@ -60,11 +92,9 @@ public class RoomBehaviour : MonoBehaviour {
         if (Time.timeScale == 1) {
             if (other.tag == "Player" && HaveSpawner) {
                 isActiveRoom = false;
-                StopCoroutine(Spawn());
-
-                if (SkeletonsInRoom.Count != 0) {
-                    for (int i = 0; i < SkeletonsInRoom.Count; i++) {
-                        SkeletonsInRoom[i].Deactive();
+                if (EnemiesInRoom.Count != 0) {
+                    for (int i = 0; i < EnemiesInRoom.Count; i++) {
+                        EnemiesInRoom[i].Deactive();
                     }
                 }
             }
@@ -72,8 +102,10 @@ public class RoomBehaviour : MonoBehaviour {
     }
 
     private IEnumerator Spawn() {
-        Instantiate(Enemy[SpawnerType], Spawners[Random.Range(0, Spawners.Length)].position, Quaternion.identity);
-        DungeonController.GetComponent<Menu>().PlaySound("Spawn");
-        yield return new WaitForSeconds(3f);
+        while (isActiveRoom) {
+            Instantiate(Enemy[SpawnerType], Spawners[Random.Range(0, Spawners.Length)].position, Quaternion.identity);
+            Menu.PlaySound("Spawn");
+            yield return new WaitForSeconds(5f);
+        }
     }
 }

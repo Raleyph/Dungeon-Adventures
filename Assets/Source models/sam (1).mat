@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: lightmare 2
+  m_Name: sam (1)
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -73,6 +73,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8207547, g: 0.8207547, b: 0.3445621, a: 1}
-    - _EmissionColor: {r: 0.8952269, g: 0.9056604, b: 0.36311856, a: 1}
+    - _Color: {r: 0.53306335, g: 0.81729853, b: 0.9339623, a: 1}
+    - _EmissionColor: {r: 0.0004901961, g: 0.00085784314, b: 0.00083103555, a: 1}
   m_BuildTextureStacks: []

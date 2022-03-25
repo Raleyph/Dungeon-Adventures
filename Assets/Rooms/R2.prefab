@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 6438980718750479988}
   - component: {fileID: 824615919447136195}
   - component: {fileID: 8197783771140853480}
+  - component: {fileID: 2151223977527778445}
   m_Layer: 0
   m_Name: Room
   m_TagString: LayerTriggerSam
@@ -1577,6 +1578,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DungeonController: {fileID: 0}
+--- !u!65 &2151223977527778445
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996621860135586061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: -1, y: 2, z: -1}
 --- !u!1001 &2507154026684734930
 PrefabInstance:
   m_ObjectHideFlags: 0

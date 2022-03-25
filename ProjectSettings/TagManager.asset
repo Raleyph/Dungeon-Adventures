@@ -12,7 +12,9 @@ TagManager:
   - HealthBar
   - Ground
   - AdosMenu
-  - Skeleton
+  - LayerTriggerSam
+  - Enemy
+  - Holem
   layers:
   - Default
   - TransparentFX

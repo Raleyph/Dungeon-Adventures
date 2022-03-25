@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337135607737606321}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0.000000002278531, y: 0.009999852, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5418580665659503712}
@@ -374,13 +374,13 @@ GameObject:
   - component: {fileID: 4509401249000246639}
   - component: {fileID: 8813611089041096862}
   - component: {fileID: 4255457805163329512}
-  - component: {fileID: 1928231032273196384}
   - component: {fileID: 3152411407829866891}
   - component: {fileID: 3881905137809922011}
-  - component: {fileID: 2362606133094611055}
+  - component: {fileID: 4868539369797593227}
+  - component: {fileID: 7254527931460162262}
   m_Layer: 0
   m_Name: Skeleton
-  m_TagString: Skeleton
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,20 +432,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6871325, y: 3.6902957, z: 1.9084128}
   m_Center: {x: 0, y: 0.89676553, z: 0.25621906}
---- !u!136 &1928231032273196384
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3881905137809922005}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 6.85
-  m_Height: 6.168017
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.67400795, z: 0}
 --- !u!95 &3152411407829866891
 Animator:
   serializedVersion: 3
@@ -487,7 +473,20 @@ NavMeshAgent:
   m_BaseOffset: 0.9
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2362606133094611055
+--- !u!135 &4868539369797593227
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881905137809922005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 1.1, z: 0.34}
+--- !u!114 &7254527931460162262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -496,15 +495,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3881905137809922005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c461c3fbbe754a44bc659b5eb9916b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5175139eced679f4f8fcc9de3de72977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Agent: {fileID: 3881905137809922011}
-  isActive: 0
-  health: 0
-  Anim: {fileID: 3152411407829866891}
+  EnemyType: 0
+  active: 0
+  Animator: {fileID: 3152411407829866891}
   Canvas: {fileID: 5589467212981353403}
-  HealthBar: {fileID: 6953839728592941826}
+  Healthbar: {fileID: 6953839728592941826}
 --- !u!1 &3911725880652756720
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,14 +558,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4515452757661940364}
-  m_LocalRotation: {x: -0.40880024, y: 0.23604041, z: 0.4408133, w: 0.7634468}
-  m_LocalPosition: {x: 5.332769e-10, y: 0.0032323503, z: 2.9802322e-10}
+  m_LocalRotation: {x: -0.60071975, y: 0.7059793, z: 0.023866419, w: 0.37437865}
+  m_LocalPosition: {x: -0.00000047992216, y: 0.0032318542, z: 0.00000073749106}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children:
   - {fileID: 9125614390630081385}
   m_Father: {fileID: 4866088734698893219}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -28.914, y: 145.171, z: -71.543}
 --- !u!1 &5589467212981353403
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +813,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6501227673425153435}
   m_LocalRotation: {x: -0.399634, y: -0.23708837, z: -0.44276983, w: 0.76683545}
-  m_LocalPosition: {x: 9.758283e-11, y: 0.0032323508, z: 2.9802322e-10}
+  m_LocalPosition: {x: 0.0000004797475, y: 0.0032321075, z: 0.00000052948593}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_Children:
   - {fileID: 4630031817454669254}

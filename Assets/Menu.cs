@@ -410,12 +410,13 @@ public class Menu : MonoBehaviour {
 
     public void Loose() {
         Cursor.visible = true;
-        
+
         isLoosed = true;
         isStarted = false;
         Overlay.SetActive(false);
         LooseMenu.SetActive(true);
         PlayerPrefs.DeleteKey("Health");
+        StopAllCoroutines();
     }
     
     public void NameRoom(string room) {

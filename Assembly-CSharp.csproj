@@ -59,6 +59,7 @@
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
      <Compile Include="Assets\Destroyer.cs" />
      <Compile Include="Assets\Objects\Chest\Chests.cs" />
+     <Compile Include="Assets\MinecartTrigger.cs" />
      <Compile Include="Assets\Rooms\OldGenerator\Room.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
      <Compile Include="Assets\Effects\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
@@ -66,15 +67,14 @@
      <Compile Include="Assets\Characters\Gnome\Aphaleon.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\GunShoot.cs" />
+     <Compile Include="Assets\Enemy.cs" />
      <Compile Include="Assets\Characters\Sam\PlayerController.cs" />
      <Compile Include="Assets\Rooms\DungeonGenerator.cs" />
      <Compile Include="Assets\Rooms\OldGenerator\RoomPlacer.cs" />
      <Compile Include="Assets\Characters\Ados\Ados.cs" />
-     <Compile Include="Assets\Characters\Skeleton\Skeleton.cs" />
      <Compile Include="Assets\Menu.cs" />
      <Compile Include="Assets\Rooms\LayerConroller.cs" />
      <Compile Include="Assets\Objects\Barell\TNT.cs" />
-     <Compile Include="Assets\Characters\Holem\Holem.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\GunAim.cs" />
      <None Include="Assets\Effects\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
  <Reference Include="UnityEngine">

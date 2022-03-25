@@ -920,7 +920,8 @@ MonoBehaviour:
   health: 0
   armor: 0
   coins: 0
-  atack: 0
+  Skeletons: {fileID: 0}
+  look: 0
 --- !u!143 &4808903819595809128
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1108,7 +1109,7 @@ SkinnedMeshRenderer:
   - {fileID: 8086011332305499597, guid: 6c72572af14725648b374c2ea640d288, type: 3}
   - {fileID: -5120268645955115416, guid: 6c72572af14725648b374c2ea640d288, type: 3}
   - {fileID: 3175369045767276888, guid: 6c72572af14725648b374c2ea640d288, type: 3}
-  - {fileID: 5229901689988935991, guid: 6c72572af14725648b374c2ea640d288, type: 3}
+  - {fileID: 2100000, guid: d6c9cc8a0c668974baa0c4910384cf53, type: 2}
   - {fileID: 8211031513291357860, guid: 6c72572af14725648b374c2ea640d288, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
