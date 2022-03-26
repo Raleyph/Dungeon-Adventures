@@ -518,7 +518,7 @@ RectTransform:
   m_GameObject: {fileID: 3486126772247295030}
   m_LocalRotation: {x: -0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: 0.027999999}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: -0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 8496863353339379044}
   m_Father: {fileID: 8078339953248285339}
@@ -1326,10 +1326,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Agent: {fileID: 7923021689284692037}
   EnemyType: 1
+  atackDistance: 0
   active: 0
   Animator: {fileID: 8887809671055140901}
   Canvas: {fileID: 3486126772247295030}
   Healthbar: {fileID: 2068241559695314583}
+  Particles: {fileID: 1892055067359446054}
 --- !u!1001 &4394951356498912415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1418,5 +1420,10 @@ PrefabInstance:
 --- !u!4 &1797134184239140762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2598213037793225477, guid: 4bcb278662b5b9344a22a96194718f76, type: 3}
+  m_PrefabInstance: {fileID: 4394951356498912415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1892055067359446054 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2792213034327417017, guid: 4bcb278662b5b9344a22a96194718f76, type: 3}
   m_PrefabInstance: {fileID: 4394951356498912415}
   m_PrefabAsset: {fileID: 0}

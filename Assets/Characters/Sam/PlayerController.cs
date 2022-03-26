@@ -12,12 +12,11 @@ public class PlayerController : MonoBehaviour {
     private Animator Anim;
 
     public int health = 100;
-    public int armor;
-    public int coins;
+    public int armor = 100;
+    public int coins = 0;
 
     public Enemy Enemies;
 
-    private bool isArmored = false;
     public bool look;
 
     private float maxMoveSpeed = 8;
@@ -38,6 +37,12 @@ public class PlayerController : MonoBehaviour {
             health = PlayerPrefs.GetInt("Health");
         }
         
+        if (PlayerPrefs.GetInt("Armor") <= 0) {
+            armor = 100;
+            PlayerPrefs.SetInt("Armor", armor);
+        } else {
+            armor = PlayerPrefs.GetInt("Armor");
+        }
     }
 
     private void Update() {
@@ -57,7 +62,7 @@ public class PlayerController : MonoBehaviour {
                 Death();
             }
             if (Input.GetMouseButtonDown(0)) {
-                Atack(0);
+                StartCoroutine(Atack(1));
             }
         }
     }
@@ -85,38 +90,35 @@ public class PlayerController : MonoBehaviour {
     private void Dash(bool holding) {
         if (dashingTimeLeft < (holding ? -.4f : -.2f)) {
             dashingTimeLeft = .1f;
+            Menu.PlaySound("Dash");
         }
     }
 
     public void Damage(int type) {
-        if (isArmored == false || armor == 0) {
+        if (armor >= 0) {
             switch (type) {
                 case 1:
-                    health -= 5;
+                    health -= 2;
                     break;
                 case 2:
-                    health -= 10;
+                    health -= 5;
                     break;
                 case 3:
-                    health -= 15;
+                    health -= 10;
                     break;
                 case 4:
-                    health -= 20;
+                    health -= 15;
                     break;
                 case 5:
-                    health -= 50;
+                    health -= 30;
                     break;
             }
+            armor -= 5;
         }
-    }
 
-    public IEnumerator GetDamage(int type) {
-        while (true) {
-            Damage(type);
-            PlayerPrefs.SetInt("Health", health);
-            Menu.PlaySound("Damage");
-            yield return new WaitForSeconds(0.7f);
-        }
+        PlayerPrefs.SetInt("Health", health);
+        PlayerPrefs.SetInt("Armor", armor);
+        Menu.PlaySound("Damage");
     }
 
     public void Death() {
@@ -128,24 +130,43 @@ public class PlayerController : MonoBehaviour {
         transform.LookAt(Enemy.transform, Vector3.up);
     }
 
-    public void Atack(int type) {
+    public IEnumerator Atack(int type) {
         Anim.SetTrigger("Atack");
-        if (Enemies) {
-            if (look) {
-                if (Vector3.Distance(transform.position, Enemies.transform.position) <= 2) Enemies.Damage(1);
+        if (Enemies && look) {
+            if (Vector3.Distance(transform.position, Enemies.transform.position) <= Enemies.atackDistance) {
+                Enemies.Damage(1);
             }
+        }
+
+        yield return new WaitForSeconds(0.5f);
+    }
+    
+    public IEnumerator GetDamage(int type) {
+        while (true) {
+            Damage(type);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    public void Buy(string item, int price) {
+        if (PlayerPrefs.GetInt("Coins") >= price) {
+            coins -= price;
+            PlayerPrefs.SetInt("Coins", coins);
+        } else {
+            Debug.Log("Ну как там с деньгами?");
+        }
+
+        if (item == "HealthPotion") {
+            HealthPoison();
         }
     }
 
     public void HealthPoison() {
         if (health <= 75) {
             health += 25;
+            PlayerPrefs.SetInt("Health", health);
         } else {
-            Debug.Log("Здоровый, блять, как пельмень!");
+            //Inventory.Add("HealthPotion", 1);
         }
-    }
-
-    public void ArmorSet() {
-        
     }
 }

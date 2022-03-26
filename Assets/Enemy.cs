@@ -19,12 +19,14 @@ public class Enemy : MonoBehaviour {
     
     private int health;
     private int damageType;
-    private float atackDistance;
     
+    public float atackDistance;
     public bool active;
 
     private GameObject Player;
+    private GameObject DungeonController;
     private PlayerController Sam;
+    private Menu Menu;
 
     public Animator Animator;
     public GameObject Canvas;
@@ -33,6 +35,9 @@ public class Enemy : MonoBehaviour {
     private void Start() {
         Player = GameObject.FindGameObjectWithTag("Player");
         Sam = Player.GetComponent<PlayerController>();
+        
+        DungeonController = GameObject.FindGameObjectWithTag("GameController");
+        Menu = DungeonController.GetComponent<Menu>();
 
         if (EnemyType == enemyTypes.Skeleton) {
             health = 100;
@@ -41,7 +46,7 @@ public class Enemy : MonoBehaviour {
         } else if (EnemyType == enemyTypes.Holem) {
             health = 200;
             damageType = 2;
-            atackDistance = 3f;
+            atackDistance = 2f;
         } else if (EnemyType == enemyTypes.Ork) {
             health = 150;
             damageType = 3;
@@ -55,15 +60,9 @@ public class Enemy : MonoBehaviour {
                 Agent.SetDestination(Player.transform.position);
                 Animator.SetBool("Move", true);
                 Sam.look = false;
-                
                 transform.LookAt(Player.transform, Vector3.up);
             } else {
-                Agent.enabled = false;
-                Animator.SetBool("Move", false);
                 Animator.SetTrigger("Atack");
-                
-                Sam.LookAtEnemy(gameObject);
-                Sam.look = true;
                 Sam.Enemies = this;
             }
             if (Canvas) {
@@ -75,14 +74,24 @@ public class Enemy : MonoBehaviour {
             Animator.SetBool("Move", false);
         }
         if (health <= 0) {
-            Death();
+            Destroy(gameObject);
+            Sam.StopCoroutine("GetDamage");
+            Sam.coins += 5;
+            PlayerPrefs.SetInt("Coins", Sam.coins);
+            Menu.PlaySound("DeathEnemy");
         }
     }
     
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             Sam.StartCoroutine("GetDamage", damageType);
+        }
+    }
+
+    private void OnTriggerStay(Collider other) {
+        if (other.tag == "Player") {
             Sam.LookAtEnemy(gameObject);
+            Sam.look = true;
         }
     }
 
@@ -110,10 +119,6 @@ public class Enemy : MonoBehaviour {
                 health -= 50;
                 break;
         }
-    }
-
-    private void Death() {
-        Sam.StopCoroutine("GetDamage");
-        Destroy(gameObject);
+        Menu.PlaySound("DamageEnemy");
     }
 }

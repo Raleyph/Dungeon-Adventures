@@ -30,7 +30,7 @@ public class DungeonGenerator : MonoBehaviour {
     public Vector2 offset;
 
     public int Level;
-    
+
     public GameObject PlayerPrefab;
     public Light MainLight;
 
@@ -42,7 +42,7 @@ public class DungeonGenerator : MonoBehaviour {
 
     public void AllRefreshGenerate() {
         MazeGenerator();
-        Instantiate(PlayerPrefab, new Vector3(0f, 1.6f, 0f), Quaternion.identity);
+        Instantiate(PlayerPrefab, new Vector3(0f, 1.52f, 0f), Quaternion.identity);
         Level = 1;
         MainLight.intensity = 0.4f;
     }
@@ -154,7 +154,7 @@ public class DungeonGenerator : MonoBehaviour {
     public void NewLayer() {
         MazeGenerator();
         Level++;
-        Instantiate(PlayerPrefab, new Vector3(0f, 1.6f, 0f), Quaternion.identity);
+        Instantiate(PlayerPrefab, new Vector3(0f, 1.52f, 0f), Quaternion.identity);
 
         if (MainLight.intensity != 0) {
             MainLight.intensity -= 0.05f;

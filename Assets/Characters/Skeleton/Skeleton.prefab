@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Agent: {fileID: 3881905137809922011}
   EnemyType: 0
+  atackDistance: 0
   active: 0
   Animator: {fileID: 3152411407829866891}
   Canvas: {fileID: 5589467212981353403}
@@ -558,14 +559,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4515452757661940364}
-  m_LocalRotation: {x: -0.60071975, y: 0.7059793, z: 0.023866419, w: 0.37437865}
-  m_LocalPosition: {x: -0.00000047992216, y: 0.0032318542, z: 0.00000073749106}
+  m_LocalRotation: {x: -0.41932374, y: 0.25440365, z: 0.4308149, w: 0.75752556}
+  m_LocalPosition: {x: -0.0000006501796, y: 0.0032311226, z: 0.00000084156636}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children:
   - {fileID: 9125614390630081385}
   m_Father: {fileID: 4866088734698893219}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -28.914, y: 145.171, z: -71.543}
+  m_LocalEulerAnglesHint: {x: -58.704, y: 2.663, z: 57.757}
 --- !u!1 &5589467212981353403
 GameObject:
   m_ObjectHideFlags: 0

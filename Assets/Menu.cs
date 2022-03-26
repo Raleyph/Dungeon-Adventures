@@ -29,8 +29,10 @@ public class Menu : MonoBehaviour {
 
     [Header("Settings & Etc")]
     public Slider HealthBar;
+    public Slider ArmorBar;
     public Text Level;
     public Text RoomName;
+    public Text Coins;
     public Slider MasterSlider;
     public Slider MusicSlider;
     public Slider VolumeSlider;
@@ -72,6 +74,8 @@ public class Menu : MonoBehaviour {
         DG = GetComponent<DungeonGenerator>();
         
         PlayerPrefs.DeleteKey("Health");
+        PlayerPrefs.DeleteKey("Armor");
+        PlayerPrefs.DeleteKey("Coins");
         BuildSettings();
     }
 
@@ -119,11 +123,10 @@ public class Menu : MonoBehaviour {
             }
         }
 
-        if (HealthBar && !isPaused && !isLoosed && isStarted) {
+        if (Overlay) {
             HealthBar.value = PlayerPrefs.GetInt("Health");
-        }
-
-        if (Level) {
+            ArmorBar.value = PlayerPrefs.GetInt("Armor");
+            Coins.text = PlayerPrefs.GetInt("Coins").ToString();
             Level.text = DG.Level.ToString();
         }
 
@@ -184,6 +187,7 @@ public class Menu : MonoBehaviour {
         // destroy Sam
         Destroy(GameObject.FindWithTag("Player"));
         PlayerPrefs.DeleteKey("Health");
+        PlayerPrefs.DeleteKey("Coins");
         
         // destroy rooms
         var rooms = GameObject.FindGameObjectsWithTag("Room");
@@ -191,8 +195,8 @@ public class Menu : MonoBehaviour {
             Destroy(rooms[i]);
         }
 
-        // destroy skeleton`s
-        var skeletons = GameObject.FindGameObjectsWithTag("Skeleton");
+        // destroy mobs
+        var skeletons = GameObject.FindGameObjectsWithTag("Enemy");
         for (int i = 0; i < skeletons.Length; i++) {
             Destroy(skeletons[i]);
         }
@@ -255,7 +259,7 @@ public class Menu : MonoBehaviour {
             Destroy(rooms[i]);
         }
         
-        var skeletons = GameObject.FindGameObjectsWithTag("Skeleton");
+        var skeletons = GameObject.FindGameObjectsWithTag("Enemy");
         for (int i = 0; i < skeletons.Length; i++) {
             Destroy(skeletons[i]);
         }
@@ -388,6 +392,30 @@ public class Menu : MonoBehaviour {
                 Controller.clip = Sounds[2];
                 Controller.Play();
                 break;
+            case "DeathEnemy":
+                Controller.clip = Sounds[3];
+                Controller.Play();
+                break;
+            case "DamageEnemy":
+                Controller.clip = Sounds[4];
+                Controller.Play();
+                break;
+            case "Explosion":
+                Controller.clip = Sounds[5];
+                Controller.Play();
+                break;
+            case "Coin":
+                Controller.clip = Sounds[6];
+                Controller.Play();
+                break;
+            case "PoisonUse":
+                Controller.clip = Sounds[7];
+                Controller.Play();
+                break;
+            case "Dash":
+                Controller.clip = Sounds[8];
+                Controller.Play();
+                break;
         }
     }
     
@@ -416,6 +444,7 @@ public class Menu : MonoBehaviour {
         Overlay.SetActive(false);
         LooseMenu.SetActive(true);
         PlayerPrefs.DeleteKey("Health");
+        PlayerPrefs.DeleteKey("Coins");
         StopAllCoroutines();
     }
     
