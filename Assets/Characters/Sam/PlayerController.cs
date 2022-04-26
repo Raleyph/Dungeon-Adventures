@@ -8,14 +8,13 @@ public class PlayerController : MonoBehaviour {
     private Vector3 moveSpeed;
     private GameObject DungeonController;
     private Menu Menu;
+    private Inventory Inventory;
     private CharacterController controllerComponent;
     private Animator Anim;
 
     public int health = 100;
     public int armor = 100;
     public int coins = 0;
-
-    public Enemy Enemies;
 
     public bool look;
 
@@ -25,8 +24,9 @@ public class PlayerController : MonoBehaviour {
     private void Start() {
         DungeonController = GameObject.FindWithTag("GameController");
         Menu = DungeonController.GetComponent<Menu>();
-        controllerComponent = GetComponent<CharacterController>();
+        Inventory = DungeonController.GetComponent<Inventory>();
         
+        controllerComponent = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         Anim = GetComponent<Animator>();
 
@@ -61,9 +61,6 @@ public class PlayerController : MonoBehaviour {
             if (health <= 0) {
                 Death();
             }
-            if (Input.GetMouseButtonDown(0)) {
-                StartCoroutine(Atack(1));
-            }
         }
     }
 
@@ -95,25 +92,22 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Damage(int type) {
-        if (armor >= 0) {
-            switch (type) {
-                case 1:
-                    health -= 2;
-                    break;
-                case 2:
-                    health -= 5;
-                    break;
-                case 3:
-                    health -= 10;
-                    break;
-                case 4:
-                    health -= 15;
-                    break;
-                case 5:
-                    health -= 30;
-                    break;
-            }
-            armor -= 5;
+        switch (type) {
+            case 1:
+                health -= 2;
+                break;
+            case 2:
+                health -= 5;
+                break;
+            case 3:
+                health -= 10;
+                break;
+            case 4:
+                health -= 15;
+                break;
+            case 5:
+                health -= 30;
+                break;
         }
 
         PlayerPrefs.SetInt("Health", health);
@@ -123,6 +117,7 @@ public class PlayerController : MonoBehaviour {
 
     public void Death() {
         Menu.Loose();
+        Inventory.ClearInventory();
         this.enabled = false;
     }
 
@@ -130,43 +125,27 @@ public class PlayerController : MonoBehaviour {
         transform.LookAt(Enemy.transform, Vector3.up);
     }
 
-    public IEnumerator Atack(int type) {
-        Anim.SetTrigger("Atack");
-        if (Enemies && look) {
-            if (Vector3.Distance(transform.position, Enemies.transform.position) <= Enemies.atackDistance) {
-                Enemies.Damage(1);
-            }
-        }
-
-        yield return new WaitForSeconds(0.5f);
-    }
-    
-    public IEnumerator GetDamage(int type) {
-        while (true) {
-            Damage(type);
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
     public void Buy(string item, int price) {
         if (PlayerPrefs.GetInt("Coins") >= price) {
             coins -= price;
             PlayerPrefs.SetInt("Coins", coins);
-        } else {
-            Debug.Log("Ну как там с деньгами?");
-        }
 
-        if (item == "HealthPotion") {
-            HealthPoison();
+            if (!Inventory.full) {
+                AddToInventory(item);
+            }
         }
     }
 
+    public void AddToInventory(string itemName) {
+        if (itemName == "HealthPotion") {
+            Inventory.AddToInventory(0);
+        }
+    }
+    
     public void HealthPoison() {
         if (health <= 75) {
             health += 25;
             PlayerPrefs.SetInt("Health", health);
-        } else {
-            //Inventory.Add("HealthPotion", 1);
         }
     }
 }

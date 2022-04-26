@@ -9,35 +9,81 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour {
     public Sprite DefaultCell;
     public Sprite SelectedCell;
-    public Sprite[] Things;
+    public Text[] Labels;
+    public Thing[] Things;
     public Cell[] Cells;
     public GameObject Overlay;
     
-    private Dictionary<string, int> Items = new Dictionary<string, int>();
+    public bool full = false;
+    
+    private Dictionary<int, Thing> Items = new Dictionary<int, Thing>();
     private int cellIndex;
+    private int id;
+
+    [System.Serializable]
+    public class Thing {
+        public Sprite Icon;
+        public string itemName;
+        public int broken;
+    }
 
     [System.Serializable]
     public class Cell {
         public Image ThisCell;
+        public Image Item;
         public bool isActive;
+        public bool busy;
 
         private string itemName;
-        private int itemCount;
-        
+        private int itemBroken;
 
-        public void SetCell(string item, int count, Sprite thing) {
-            ThisCell.sprite = thing;
+        public void SetCell(string item, int broken, Sprite icon) {
+            Item.enabled = true;
+            Item.sprite = icon;
             itemName = item;
-            itemCount = count;
+            itemBroken = broken;
+            busy = true;
+        }
+
+        public void ClearCell() {
+            Item.enabled = false;
+            Item.sprite = null;
+            itemName = null;
+            itemBroken = 0;
+            busy = false;
         }
     }
 
-    public void AddToInventory(string item, int count) {
-        Items.Add(item, count);
+    public void AddToInventory(int itemType) {
+        id += 1;
+        Items.Add(id, Things[itemType]);
+
+        if (!full) {
+            if (!Cells[0].busy) {
+                Cells[0].SetCell(Things[itemType].itemName, Things[itemType].broken, Things[itemType].Icon);
+            } else {
+                if (!Cells[1].busy) {
+                    Cells[1].SetCell(Things[itemType].itemName, Things[itemType].broken, Things[itemType].Icon);
+                } else {
+                    if (!Cells[2].busy) {
+                        Cells[2].SetCell(Things[itemType].itemName, Things[itemType].broken, Things[itemType].Icon);
+                        full = true;
+                    }
+                }
+            }
+        }
     }
 
-    public void SetInventory() {
-        //Cells[cellIndex].SetCell(Things[0]);
+    public void RemoveFromInventory(int cell) {
+        Cells[cell].ClearCell();
+        full = false;
+    }
+
+    public void ClearInventory() {
+        for (int i = 0; i < Cells.Length; i++) {
+            Cells[i].ClearCell();
+            full = false;
+        }
     }
 
     private void Update() {
@@ -49,11 +95,10 @@ public class Inventory : MonoBehaviour {
             } else if (Input.GetAxis("Mouse ScrollWheel") < 0f) {
                 if (cellIndex > 0) {
                     cellIndex--;
-                } else cellIndex = 2;
-            } else if (Input.GetKeyDown(KeyCode.Alpha0)) {
-                
+                }
+                else cellIndex = 2;
             }
-
+            
             for (int i = 0; i < Cells.Length; i++) {
                 if (Cells[i].isActive && i != cellIndex) {
                     Cells[i].isActive = false;

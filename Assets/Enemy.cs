@@ -19,7 +19,9 @@ public class Enemy : MonoBehaviour {
     
     private int health;
     private int damageType;
-    
+    private float atackTime;
+
+    public float startTimeAtack;
     public float atackDistance;
     public bool active;
 
@@ -41,11 +43,11 @@ public class Enemy : MonoBehaviour {
 
         if (EnemyType == enemyTypes.Skeleton) {
             health = 100;
-            damageType = 1;
+            damageType = 2;
             atackDistance = 2f;
         } else if (EnemyType == enemyTypes.Holem) {
             health = 200;
-            damageType = 2;
+            damageType = 3;
             atackDistance = 2f;
         } else if (EnemyType == enemyTypes.Ork) {
             health = 150;
@@ -63,7 +65,6 @@ public class Enemy : MonoBehaviour {
                 transform.LookAt(Player.transform, Vector3.up);
             } else {
                 Animator.SetTrigger("Atack");
-                Sam.Enemies = this;
             }
             if (Canvas) {
                 Healthbar.value = health;
@@ -75,16 +76,9 @@ public class Enemy : MonoBehaviour {
         }
         if (health <= 0) {
             Destroy(gameObject);
-            Sam.StopCoroutine("GetDamage");
             Sam.coins += 5;
             PlayerPrefs.SetInt("Coins", Sam.coins);
             Menu.PlaySound("DeathEnemy");
-        }
-    }
-    
-    private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player") {
-            Sam.StartCoroutine("GetDamage", damageType);
         }
     }
 
@@ -95,12 +89,6 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    private void OnTriggerExit(Collider other) {
-        if (other.tag == "Player") {
-            Sam.StopCoroutine("GetDamage");
-        }
-    }
-    
     public void Active() {
         active = true;
         Canvas.SetActive(true);
@@ -109,7 +97,7 @@ public class Enemy : MonoBehaviour {
     public void Deactive() {
         active = false;
     }
-    
+
     public void Damage(int type) {
         switch (type) {
             case 1:
@@ -120,5 +108,9 @@ public class Enemy : MonoBehaviour {
                 break;
         }
         Menu.PlaySound("DamageEnemy");
+    }
+
+    public void Atack() {
+        Sam.Damage(damageType);
     }
 }
