@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6005783584267694448}
   m_Layer: 0
   m_Name: SaloviersChest
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 3892149572696824664}
   - component: {fileID: 7819943334116862922}
   - component: {fileID: 8016975720455873962}
+  - component: {fileID: 1423990658734766541}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -123,3 +124,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1423990658734766541
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641003571674985361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1168935, y: 0.029276293, z: 0.06636272}
+  m_Center: {x: 0.014203658, y: 0.0021867624, z: -0.02702102}

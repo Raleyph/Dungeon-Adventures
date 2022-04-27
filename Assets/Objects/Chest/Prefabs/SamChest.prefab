@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1289780451182236881}
   m_Layer: 0
   m_Name: SamChest
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 2371667528950064252}
   - component: {fileID: 3850024678279557810}
   - component: {fileID: 3536065415543799178}
+  - component: {fileID: 1665882584387850247}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -195,3 +196,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1665882584387850247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767825025022160593}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.025280641, y: 0.025643365, z: 0.026567271}
+  m_Center: {x: 0, y: 4.8899773e-13, z: 0.003283638}

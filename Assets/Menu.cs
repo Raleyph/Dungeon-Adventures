@@ -54,7 +54,7 @@ public class Menu : MonoBehaviour {
 
     private bool isStarted = false;
     private bool isPaused = false;
-    private bool isLoosed = false;
+    public bool isLoosed = false;
 
     private float soundVolume;
     private float musicVolume;
@@ -124,8 +124,8 @@ public class Menu : MonoBehaviour {
         }
 
         if (Overlay) {
-            HealthBar.value = PlayerPrefs.GetInt("Health");
-            ArmorBar.value = PlayerPrefs.GetInt("Armor");
+            HealthBar.value = PlayerPrefs.GetFloat("Health");
+            ArmorBar.value = PlayerPrefs.GetFloat("Armor");
             Coins.text = PlayerPrefs.GetInt("Coins").ToString();
             Level.text = DG.Level.ToString();
         }
@@ -149,6 +149,7 @@ public class Menu : MonoBehaviour {
         MainMenu.SetActive(false);
         Overlay.SetActive(true);
         isStarted = true;
+        GetComponent<Inventory>().InitInventory(true);
         Camera.transform.rotation = Quaternion.Euler(60f, 0f, 0f);
     }
     
@@ -201,6 +202,13 @@ public class Menu : MonoBehaviour {
             Destroy(skeletons[i]);
         }
         
+        // destroy chests
+        var chests = GameObject.FindGameObjectsWithTag("Chest");
+        for (int i = 0; i < chests.Length; i++) {
+            Destroy(chests[i]);
+        }
+        
+        GetComponent<Inventory>().ClearInventory();
         GetComponent<DungeonGenerator>().AllRefreshGenerate();
         Camera.transform.position = new Vector3(3f, 1.5f, 3f);
         Camera.transform.rotation = Quaternion.Euler(0f, -135f, 0f);
@@ -264,10 +272,16 @@ public class Menu : MonoBehaviour {
             Destroy(skeletons[i]);
         }
 
+        var chests = GameObject.FindGameObjectsWithTag("Chest");
+        for (int i = 0; i < chests.Length; i++) {
+            Destroy(chests[i]);
+        }
+
         NextLevelmenu.SetActive(false);
         Overlay.SetActive(true);
         isPaused = false;
         GetComponent<DungeonGenerator>().NewLayer();
+        GetComponent<Inventory>().InitInventory(false);
     }
 
     public void NotNewLayer() {
@@ -443,6 +457,7 @@ public class Menu : MonoBehaviour {
         isStarted = false;
         Overlay.SetActive(false);
         LooseMenu.SetActive(true);
+        GetComponent<Inventory>().ClearInventory();
         PlayerPrefs.DeleteKey("Health");
         PlayerPrefs.DeleteKey("Coins");
         StopAllCoroutines();

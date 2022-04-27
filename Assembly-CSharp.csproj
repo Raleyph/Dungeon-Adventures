@@ -78,6 +78,7 @@
      <Compile Include="Assets\Rooms\LayerConroller.cs" />
      <Compile Include="Assets\Objects\Barell\TNT.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\GunAim.cs" />
+     <Compile Include="Assets\Characters\Ados\Forge.cs" />
      <None Include="Assets\Effects\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Programs/Unity/2020.3.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

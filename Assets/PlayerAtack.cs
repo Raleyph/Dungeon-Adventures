@@ -16,19 +16,21 @@ public class PlayerAtack : MonoBehaviour
 
     private void Update() {
         if (Time.timeScale == 1) {
-            if (startTimeAtack <= 0) {
+            if (atackTime >= 0) {
                 if (Input.GetMouseButtonDown(0)) {
                     Anim.SetTrigger("Atack");
-                
-                    Collider[] enemies = Physics.OverlapSphere(AtackPos.position, atackRange, Enemy);
-                    for (int i = 0; i < enemies.Length; i++) {
-                        enemies[i].GetComponent<Enemy>().Damage(1);
-                    }
                 }
-                startTimeAtack = atackTime;
+                atackTime = startTimeAtack;
             } else {
-                startTimeAtack -= Time.deltaTime;
+                atackTime -= Time.deltaTime;
             }
+        }
+    }
+
+    public void Atack() {
+        Collider[] enemies = Physics.OverlapSphere(AtackPos.position, atackRange, Enemy);
+        for (int i = 0; i < enemies.Length; i++) {
+            enemies[i].GetComponent<Enemy>().Damage(damage);
         }
     }
 

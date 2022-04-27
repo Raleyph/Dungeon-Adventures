@@ -18,10 +18,8 @@ public class Enemy : MonoBehaviour {
     public enemyTypes EnemyType = enemyTypes.Skeleton;
     
     private int health;
-    private int damageType;
-    private float atackTime;
-
-    public float startTimeAtack;
+    private int damage;
+    
     public float atackDistance;
     public bool active;
 
@@ -43,20 +41,20 @@ public class Enemy : MonoBehaviour {
 
         if (EnemyType == enemyTypes.Skeleton) {
             health = 100;
-            damageType = 2;
+            damage = 10;
             atackDistance = 2f;
         } else if (EnemyType == enemyTypes.Holem) {
             health = 200;
-            damageType = 3;
+            damage = 20;
             atackDistance = 2f;
         } else if (EnemyType == enemyTypes.Ork) {
             health = 150;
-            damageType = 3;
+            damage = 20;
         }
     }
 
     private void Update() {
-        if (active) {
+        if (active && !Menu.isLoosed) {
             if (Vector3.Distance(transform.position, Player.transform.position) >= atackDistance) {
                 Agent.enabled = true;
                 Agent.SetDestination(Player.transform.position);
@@ -98,19 +96,12 @@ public class Enemy : MonoBehaviour {
         active = false;
     }
 
-    public void Damage(int type) {
-        switch (type) {
-            case 1:
-                health -= 25;
-                break;
-            case 2:
-                health -= 50;
-                break;
-        }
+    public void Damage(int damage) {
+        health -= damage;
         Menu.PlaySound("DamageEnemy");
     }
 
     public void Atack() {
-        Sam.Damage(damageType);
+        Sam.Damage(damage);
     }
 }

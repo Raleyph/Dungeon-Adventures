@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5126101199935072729}
   - component: {fileID: 7153958961160614704}
   - component: {fileID: 927220995407646320}
+  - component: {fileID: 7456436323339029366}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -165,6 +166,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7456436323339029366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512084114168186117}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.025280641, y: 0.025643365, z: 0.026567271}
+  m_Center: {x: 0, y: -1.2208567e-12, z: 0.0032836376}
 --- !u!1 &5676849644924135980
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +190,7 @@ GameObject:
   - component: {fileID: 4510833307520452811}
   m_Layer: 0
   m_Name: AdosChest
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

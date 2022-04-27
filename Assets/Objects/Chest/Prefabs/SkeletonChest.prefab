@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 1185640380869683349}
   m_Layer: 0
   m_Name: SkeletonChest
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 2653555393788104558}
   - component: {fileID: 8686500603303627131}
   - component: {fileID: 8558223201717871038}
+  - component: {fileID: 1200185270935717257}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -358,3 +359,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1200185270935717257
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8196937418127878913}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.025280641, y: 0.025643365, z: 0.026567271}
+  m_Center: {x: 0, y: -4.4865778e-12, z: 0.0032836378}

@@ -12,14 +12,14 @@ public class TNT : MonoBehaviour {
         if (other.tag == "Player") {
             Explosive.Play();
             Destroy(Barell);
-            other.GetComponent<PlayerController>().Damage(5);
+            other.GetComponent<PlayerController>().Damage(50);
             GetComponent<BoxCollider>().enabled = false;
         }
         
         if (other.tag == "Enemy") {
             Explosive.Play();
             Destroy(Barell);
-            other.GetComponent<Enemy>().Damage(2);
+            other.GetComponent<Enemy>().Damage(50);
             GetComponent<BoxCollider>().enabled = false;
         }
     }

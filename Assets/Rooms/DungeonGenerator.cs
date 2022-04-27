@@ -77,9 +77,7 @@ public class DungeonGenerator : MonoBehaviour {
         }
 
         int currentCell = startPos;
-
         Stack<int> path = new Stack<int>();
-
         int k = 0;
 
         while (k<1000) {
@@ -100,7 +98,6 @@ public class DungeonGenerator : MonoBehaviour {
                 }
             } else {
                 path.Push(currentCell);
-
                 int newCell = neighbors[Random.Range(0, neighbors.Count)];
 
                 if (newCell > currentCell) {

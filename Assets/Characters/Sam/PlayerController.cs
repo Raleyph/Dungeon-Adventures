@@ -12,14 +12,19 @@ public class PlayerController : MonoBehaviour {
     private CharacterController controllerComponent;
     private Animator Anim;
 
-    public int health = 100;
-    public int armor = 100;
+    public float health = 100;
+    public float armor = 100;
     public int coins = 0;
 
     public bool look;
 
     private float maxMoveSpeed = 8;
     private float dashingTimeLeft;
+
+    private int atackArmor;
+
+    public GameObject[] Weapons;
+    public PlayerAtack PlayerAtack;
 
     private void Start() {
         DungeonController = GameObject.FindWithTag("GameController");
@@ -32,14 +37,14 @@ public class PlayerController : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("Health") <= 0) {
             health = 100;
-            PlayerPrefs.SetInt("Health", health);
+            PlayerPrefs.SetFloat("Health", health);
         } else {
             health = PlayerPrefs.GetInt("Health");
         }
         
         if (PlayerPrefs.GetInt("Armor") <= 0) {
             armor = 100;
-            PlayerPrefs.SetInt("Armor", armor);
+            PlayerPrefs.SetFloat("Armor", armor);
         } else {
             armor = PlayerPrefs.GetInt("Armor");
         }
@@ -60,6 +65,10 @@ public class PlayerController : MonoBehaviour {
         if (Time.timeScale == 1) {
             if (health <= 0) {
                 Death();
+            }
+
+            if (Inventory.Sam == null) {
+                Inventory.Sam = this;
             }
         }
     }
@@ -83,7 +92,7 @@ public class PlayerController : MonoBehaviour {
         moveSpeed.y = ySpeed + Physics.gravity.y * Time.deltaTime;
         controllerComponent.Move(moveSpeed * Time.deltaTime);
     }
-    
+
     private void Dash(bool holding) {
         if (dashingTimeLeft < (holding ? -.4f : -.2f)) {
             dashingTimeLeft = .1f;
@@ -91,27 +100,16 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void Damage(int type) {
-        switch (type) {
-            case 1:
-                health -= 2;
-                break;
-            case 2:
-                health -= 5;
-                break;
-            case 3:
-                health -= 10;
-                break;
-            case 4:
-                health -= 15;
-                break;
-            case 5:
-                health -= 30;
-                break;
+    public void Damage(float damage) {
+        if (armor != 0) {
+            armor -= damage / 4;
+            health -= damage / 10;
+        } else {
+            health -= damage;
         }
 
-        PlayerPrefs.SetInt("Health", health);
-        PlayerPrefs.SetInt("Armor", armor);
+        PlayerPrefs.SetFloat("Health", health);
+        PlayerPrefs.SetFloat("Armor", armor);
         Menu.PlaySound("Damage");
     }
 
@@ -119,6 +117,29 @@ public class PlayerController : MonoBehaviour {
         Menu.Loose();
         Inventory.ClearInventory();
         this.enabled = false;
+    }
+
+    public void SetWeapon(string name) {
+        int weaponNumber = 0;
+        
+        switch (name) {
+            case "Default Sword":
+                weaponNumber = 0;
+                PlayerAtack.damage = 20;
+                break;
+            case "Axe":
+                weaponNumber = 1;
+                PlayerAtack.damage = 40;
+                break;
+        }
+
+        for (int i = 0; i < Weapons.Length; i++) {
+            if (i != weaponNumber) {
+                Weapons[i].SetActive(false);
+            } else {
+                Weapons[weaponNumber].SetActive(true);
+            }
+        }
     }
 
     public void LookAtEnemy(GameObject Enemy) {
@@ -131,21 +152,29 @@ public class PlayerController : MonoBehaviour {
             PlayerPrefs.SetInt("Coins", coins);
 
             if (!Inventory.full) {
-                AddToInventory(item);
+                Inventory.AddToInventory(item);
             }
         }
     }
 
-    public void AddToInventory(string itemName) {
-        if (itemName == "HealthPotion") {
-            Inventory.AddToInventory(0);
+    public void Fix(string item, int price) {
+        if (PlayerPrefs.GetInt("Coins") >= price) {
+            coins -= price;
+            PlayerPrefs.SetInt("Coins", coins);
+
+            switch (item) {
+                case "Armor":
+                    armor = 100;
+                    break;
+            }
         }
     }
-    
-    public void HealthPoison() {
+
+    public void HealthPotion() {
         if (health <= 75) {
             health += 25;
-            PlayerPrefs.SetInt("Health", health);
+            PlayerPrefs.SetFloat("Health", health);
+            Menu.PlaySound("PotionUse");
         }
     }
 }

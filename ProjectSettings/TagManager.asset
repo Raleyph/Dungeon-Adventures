@@ -15,6 +15,7 @@ TagManager:
   - LayerTriggerSam
   - Enemy
   - Holem
+  - Chest
   layers:
   - Default
   - TransparentFX
