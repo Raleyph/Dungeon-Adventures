@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
@@ -10,7 +9,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour {
     public Sprite DefaultCell;
     public Sprite SelectedCell;
-    public Thing[] Things;
+    public Items[] Things;
     public Cell[] Cells;
     public GameObject Overlay;
     public PlayerController Sam;
@@ -18,20 +17,6 @@ public class Inventory : MonoBehaviour {
     public bool full = false;
     
     private int cellIndex;
-
-    [System.Serializable]
-    public class Thing {
-        public enum itemType {
-            Weapon,
-            Potions,
-            Amulets
-        };
-
-        public itemType ItemType = itemType.Weapon;
-        public Sprite Icon;
-        public string itemName;
-        public int broken;
-    }
 
     [System.Serializable]
     public class Cell {
@@ -42,14 +27,14 @@ public class Inventory : MonoBehaviour {
 
         public string itemType;
         public string itemName;
-        public int itemBroken;
+        public float value;
 
-        public void SetCell(string type, string item, int broken, Sprite icon) {
+        public void SetCell(string type, string item, Sprite icon, float itemValue) {
             Item.enabled = true;
             Item.sprite = icon;
             itemType = type;
             itemName = item;
-            itemBroken = broken;
+            value = itemValue;
             busy = true;
         }
 
@@ -58,7 +43,7 @@ public class Inventory : MonoBehaviour {
             Item.sprite = null;
             itemType = null;
             itemName = null;
-            itemBroken = 0;
+            value = 0f;
             busy = false;
         }
     }
@@ -78,29 +63,40 @@ public class Inventory : MonoBehaviour {
     }
 
     public void AddToInventory(string itemName) {
-        int itemType = 0;
+        string itemType = null;
+        string name = null;
+        Sprite icon = null;
+        float value = 0f;
+        
+        for (int i = 0; i < Things.Length; i++) {
+            if (Things[i].itemName == itemName) {
+                itemType = Things[i].ItemTypes.ToString();
+                name = Things[i].itemName;
+                icon = Things[i].Icon;
 
-        switch (itemName) {
-            case "Health Potion":
-                itemType = 0;
-                break;
-            case "Default Sword":
-                itemType = 1;
-                break;
-            case "Axe":
-                itemType = 2;
-                break;
+                switch (itemType) {
+                    case "Weapon":
+                        value = Things[i].damage;
+                        break;
+                    case "Potion":
+                        value = Things[i].healthOfset;
+                        break;
+                    case "Amulets":
+                        value = Things[i].amuletValue;
+                        break;
+                }
+            }
         }
         
         if (!full) {
             if (!Cells[0].busy) {
-                Cells[0].SetCell(Things[itemType].ItemType.ToString(), Things[itemType].itemName, Things[itemType].broken, Things[itemType].Icon);
+                Cells[0].SetCell(itemType, name, icon, value);
             } else {
                 if (!Cells[1].busy) {
-                    Cells[1].SetCell(Things[itemType].ItemType.ToString(), Things[itemType].itemName, Things[itemType].broken, Things[itemType].Icon);
+                    Cells[1].SetCell(itemType, name, icon, value);
                 } else {
                     if (!Cells[2].busy) {
-                        Cells[2].SetCell(Things[itemType].ItemType.ToString(), Things[itemType].itemName, Things[itemType].broken, Things[itemType].Icon);
+                        Cells[2].SetCell(itemType, name, icon, value);
                         full = true;
                     }
                 }
@@ -109,13 +105,11 @@ public class Inventory : MonoBehaviour {
     }
 
     public void UseItem(int cell) {
-        if (Cells[cell].itemType == "Potions") {
-            switch (Cells[cell].itemName) {
-                case "Health Potion":
-                    Sam.HealthPotion();
-                    break;
-            }
-            Cells[cell].ClearCell();
+        switch (Cells[cell].itemName) {
+            case "Health Potion":
+                Sam.HealthPotion();
+                Cells[cell].ClearCell();
+                break;
         }
     }
 

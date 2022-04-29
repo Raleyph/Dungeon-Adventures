@@ -4,25 +4,38 @@
     <list default="true" id="fc24536f-9dbb-4e68-9124-91a87f4813ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Ados/Forge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Ados/Forge.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Gnome/Shop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Gnome/Shop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Holem/Holem.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Holem/Holem.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Holem/Holem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Holem/Holem.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/anim/atack1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/anim/atack1.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/skeleton.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/skeleton.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Barell/TNT.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Barell/TNT.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/AdosChest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/AdosChest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/AphaleonChest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/AphaleonChest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SaloviersChest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SaloviersChest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SamChest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SamChest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SkeletonChest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SkeletonChest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAtack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAtack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MinecartTrigger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MinecartTrigger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SalovierChestOld.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SalovierChestOld.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Insruments/Axe.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/Insruments/Axe.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerAtack.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerAtack.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R13.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R11.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/R3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R9.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Old.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Old/healthbar_fill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Old/healthbar_fill.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/cell_selected.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/cell_selected.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +53,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PlayerAtack.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/MinecartTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Characters/Gnome/Shop.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -118,7 +129,8 @@
       <workItem from="1648824126880" duration="10139000" />
       <workItem from="1648908862830" duration="11922000" />
       <workItem from="1650895100820" duration="17156000" />
-      <workItem from="1650975663759" duration="58261000" />
+      <workItem from="1650975663759" duration="80324000" />
+      <workItem from="1651229722358" duration="26405000" />
     </task>
     <servers />
   </component>

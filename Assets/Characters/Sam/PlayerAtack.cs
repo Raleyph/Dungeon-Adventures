@@ -3,22 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAtack : MonoBehaviour
-{
+public class PlayerAtack : MonoBehaviour {
+    private Inventory IV;
     private float atackTime;
     public float startTimeAtack;
 
     public Transform AtackPos;
     public LayerMask Enemy;
     public float atackRange;
-    public int damage;
+    public float damage;
     public Animator Anim;
+
+    private void Start() {
+        IV = GameObject.FindWithTag("GameController").GetComponent<Inventory>();
+    }
 
     private void Update() {
         if (Time.timeScale == 1) {
             if (atackTime >= 0) {
                 if (Input.GetMouseButtonDown(0)) {
                     Anim.SetTrigger("Atack");
+
+                    for (int i = 0; i < IV.Cells.Length; i++) {
+                        if (IV.Cells[i].busy && IV.Cells[i].itemType == "Weapon") {
+                            damage = IV.Cells[i].value;
+                        }
+                    }
                 }
                 atackTime = startTimeAtack;
             } else {

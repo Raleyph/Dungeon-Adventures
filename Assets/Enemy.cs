@@ -17,14 +17,13 @@ public class Enemy : MonoBehaviour {
     
     public enemyTypes EnemyType = enemyTypes.Skeleton;
     
-    private int health;
+    private float health;
     private int damage;
     
     public float atackDistance;
     public bool active;
 
     private GameObject Player;
-    private GameObject DungeonController;
     private PlayerController Sam;
     private Menu Menu;
 
@@ -36,8 +35,7 @@ public class Enemy : MonoBehaviour {
         Player = GameObject.FindGameObjectWithTag("Player");
         Sam = Player.GetComponent<PlayerController>();
         
-        DungeonController = GameObject.FindGameObjectWithTag("GameController");
-        Menu = DungeonController.GetComponent<Menu>();
+        Menu = GameObject.FindWithTag("GameController").GetComponent<Menu>();
 
         if (EnemyType == enemyTypes.Skeleton) {
             health = 100;
@@ -96,7 +94,7 @@ public class Enemy : MonoBehaviour {
         active = false;
     }
 
-    public void Damage(int damage) {
+    public void Damage(float damage) {
         health -= damage;
         Menu.PlaySound("DamageEnemy");
     }

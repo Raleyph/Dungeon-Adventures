@@ -11,6 +11,6 @@ public class Forge : MonoBehaviour {
     }
 
     public void FixArmor() {
-        Sam.Fix("Armor", 20);
+        if (PlayerPrefs.GetInt("Coins") >= 20) Sam.Fix("Armor", 20);
     }
 }

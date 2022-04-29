@@ -54,13 +54,13 @@
   <ItemGroup>
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Rooms\RoomBehaviour.cs" />
+     <Compile Include="Assets\Rooms\Chest.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
      <Compile Include="Assets\Destroyer.cs" />
      <Compile Include="Assets\Objects\Chest\Chests.cs" />
-     <Compile Include="Assets\MinecartTrigger.cs" />
      <Compile Include="Assets\Rooms\OldGenerator\Room.cs" />
-     <Compile Include="Assets\PlayerAtack.cs" />
+     <Compile Include="Assets\Characters\Sam\PlayerAtack.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
      <Compile Include="Assets\Effects\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
@@ -72,13 +72,17 @@
      <Compile Include="Assets\Characters\Sam\PlayerController.cs" />
      <Compile Include="Assets\Rooms\DungeonGenerator.cs" />
      <Compile Include="Assets\Rooms\OldGenerator\RoomPlacer.cs" />
-     <Compile Include="Assets\Inventory.cs" />
+     <Compile Include="Assets\Inventory\Inventory.cs" />
      <Compile Include="Assets\Characters\Ados\Ados.cs" />
      <Compile Include="Assets\Menu.cs" />
      <Compile Include="Assets\Rooms\LayerConroller.cs" />
      <Compile Include="Assets\Objects\Barell\TNT.cs" />
      <Compile Include="Assets\Effects\EffectExamples\Shared\Scripts\GunAim.cs" />
+     <Compile Include="Assets\Rooms\AutoJump.cs" />
      <Compile Include="Assets\Characters\Ados\Forge.cs" />
+     <Compile Include="Assets\Rooms\Altar.cs" />
+     <Compile Include="Assets\Inventory\Items.cs" />
+     <Compile Include="Assets\test.cs" />
      <None Include="Assets\Effects\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Programs/Unity/2020.3.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

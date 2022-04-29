@@ -93,6 +93,11 @@ public class PlayerController : MonoBehaviour {
         controllerComponent.Move(moveSpeed * Time.deltaTime);
     }
 
+    public void AutoJump()
+    {
+        moveSpeed.y = 0.5f;
+    }
+
     private void Dash(bool holding) {
         if (dashingTimeLeft < (holding ? -.4f : -.2f)) {
             dashingTimeLeft = .1f;
@@ -147,34 +152,29 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Buy(string item, int price) {
-        if (PlayerPrefs.GetInt("Coins") >= price) {
-            coins -= price;
-            PlayerPrefs.SetInt("Coins", coins);
+        coins -= price;
+        PlayerPrefs.SetInt("Coins", coins);
 
-            if (!Inventory.full) {
-                Inventory.AddToInventory(item);
-            }
+        if (!Inventory.full) {
+            Inventory.AddToInventory(item);
         }
     }
 
     public void Fix(string item, int price) {
-        if (PlayerPrefs.GetInt("Coins") >= price) {
-            coins -= price;
-            PlayerPrefs.SetInt("Coins", coins);
+        coins -= price;
+        PlayerPrefs.SetInt("Coins", coins);
 
-            switch (item) {
-                case "Armor":
-                    armor = 100;
-                    break;
-            }
+        switch (item) {
+            case "Armor":
+                armor = 100;
+                break;
         }
     }
 
     public void HealthPotion() {
-        if (health <= 75) {
-            health += 25;
-            PlayerPrefs.SetFloat("Health", health);
-            Menu.PlaySound("PotionUse");
-        }
+        if (PlayerPrefs.GetInt("Health") <= 75) health += 25;
+        else health = 100;
+        PlayerPrefs.SetFloat("Health", health);
+        Menu.PlaySound("PotionUse");
     }
 }

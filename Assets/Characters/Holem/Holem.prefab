@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b082df7f5617c674eac0e6484f4f0311, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d922b3cbac39be48a42b58c22741388, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1357,7 +1357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Agent: {fileID: 7923021689284692037}
   EnemyType: 1
-  startTimeAtack: 0.5
   atackDistance: 0.5
   active: 0
   Animator: {fileID: 8887809671055140901}

@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - Holem
   - Chest
+  - Jump
   layers:
   - Default
   - TransparentFX

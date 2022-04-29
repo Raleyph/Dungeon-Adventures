@@ -422,7 +422,7 @@ public class Menu : MonoBehaviour {
                 Controller.clip = Sounds[6];
                 Controller.Play();
                 break;
-            case "PoisonUse":
+            case "PotionUse":
                 Controller.clip = Sounds[7];
                 Controller.Play();
                 break;

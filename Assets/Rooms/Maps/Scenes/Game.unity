@@ -4619,18 +4619,11 @@ MonoBehaviour:
   DefaultCell: {fileID: 21300000, guid: 4b78d0acec9a0004a9f58d4033cc679e, type: 3}
   SelectedCell: {fileID: 21300000, guid: 5d426704a577a4346832312b489ce76e, type: 3}
   Things:
-  - ItemType: 1
-    Icon: {fileID: 21300000, guid: 01a8c758c2aa41a4f868d6161e533f4d, type: 3}
-    itemName: Health Potion
-    broken: 0
-  - ItemType: 0
-    Icon: {fileID: 21300000, guid: ed3262bd681ee9a4e9acf485bbdfd48d, type: 3}
-    itemName: Default Sword
-    broken: 0
-  - ItemType: 0
-    Icon: {fileID: 21300000, guid: 7e85dfa26af47b74b99465c4e52dbda8, type: 3}
-    itemName: Axe
-    broken: 0
+  - {fileID: 1665486115071114133, guid: 4193417c7c2938e42b77a22014e08b49, type: 3}
+  - {fileID: 8718300195550040653, guid: ce8633928878baa44bdd00e5a229dd27, type: 3}
+  - {fileID: 4047586723104394126, guid: f69d6cf3e32f84047a15d48bef811a68, type: 3}
+  - {fileID: 3279499640715373174, guid: eed4ca460e9e7334083c5659778eb0fb, type: 3}
+  - {fileID: 1846843170982087698, guid: 378a1e27e5abd414f9d389c6fb4c3833, type: 3}
   Cells:
   - ThisCell: {fileID: 1846599012}
     Item: {fileID: 1093374825}
@@ -4638,21 +4631,21 @@ MonoBehaviour:
     busy: 0
     itemType: 
     itemName: 
-    itemBroken: 0
+    value: 0
   - ThisCell: {fileID: 2041120402}
     Item: {fileID: 1401984693}
     isActive: 0
     busy: 0
     itemType: 
     itemName: 
-    itemBroken: 0
+    value: 0
   - ThisCell: {fileID: 974083811}
     Item: {fileID: 918672264}
     isActive: 0
     busy: 0
     itemType: 
     itemName: 
-    itemBroken: 0
+    value: 0
   Overlay: {fileID: 802377877}
   Sam: {fileID: 0}
   full: 0
