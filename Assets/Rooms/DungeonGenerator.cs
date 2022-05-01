@@ -2,24 +2,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
-public class DungeonGenerator : MonoBehaviour {
-    public class Cell {
+public class DungeonGenerator : MonoBehaviour
+{
+    public class Cell
+    {
         public bool visited = false;
         public bool[] status = new bool[4];
     }
 
     [System.Serializable]
-    public class Rule {
+    public class Rule
+    {
         public GameObject room;
         public Vector2Int minPosition;
         public Vector2Int maxPosition;
 
         public bool obligatory;
 
-        public int ProbabilityOfSpawning(int x, int y) {
-            if (x>= minPosition.x && x<=maxPosition.x && y >= minPosition.y && y <= maxPosition.y) {
+        public int ProbabilityOfSpawning(int x, int y)
+        {
+            if (x >= minPosition.x && x <= maxPosition.x && y >= minPosition.y && y <= maxPosition.y)
+            {
                 return obligatory ? 2 : 1;
             }
+
             return 0;
         }
     }
@@ -51,7 +57,7 @@ public class DungeonGenerator : MonoBehaviour {
         for (int i = 0; i < size.x; i++) {
             for (int j = 0; j < size.y; j++) {
                 Cell currentCell = board[(i + j * size.x)];
-                
+
                 if (currentCell.visited) {
                     if (i == 0 && j == 0) {
                         var newRoom = Instantiate(rooms[0].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();

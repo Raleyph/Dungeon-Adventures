@@ -11,7 +11,7 @@ public class Items : MonoBehaviour {
 
    [Header("Main Settings")]
    public itemTypes ItemTypes;
-   [HideInInspector] public Sprite Icon;
+   [HideInInspector] public Texture2D Icon;
    [HideInInspector] public string itemName;
    [HideInInspector] public int itemNum;
 
@@ -20,7 +20,7 @@ public class Items : MonoBehaviour {
    [HideInInspector] public int broken;
 
    // Potion
-   public enum potionType { Health, Poison, Strong } 
+   public enum potionType { Health, Poison, Strong, Beer } 
    [HideInInspector] public potionType Potion = potionType.Health;
 
    [HideInInspector] public float healthOfset;

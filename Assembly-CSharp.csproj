@@ -82,7 +82,7 @@
      <Compile Include="Assets\Characters\Ados\Forge.cs" />
      <Compile Include="Assets\Rooms\Altar.cs" />
      <Compile Include="Assets\Inventory\Items.cs" />
-     <Compile Include="Assets\test.cs" />
+     <Compile Include="Assets\Generator.cs" />
      <None Include="Assets\Effects\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Programs/Unity/2020.3.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     private Rigidbody rb;
     private Vector3 moveSpeed;
-    private GameObject DungeonController;
     private Menu Menu;
     private Inventory Inventory;
     private CharacterController controllerComponent;
@@ -27,27 +26,25 @@ public class PlayerController : MonoBehaviour {
     public PlayerAtack PlayerAtack;
 
     private void Start() {
-        DungeonController = GameObject.FindWithTag("GameController");
-        Menu = DungeonController.GetComponent<Menu>();
-        Inventory = DungeonController.GetComponent<Inventory>();
+        Menu = GameObject.FindWithTag("GameController").GetComponent<Menu>();
+        Inventory = GameObject.FindWithTag("GameController").GetComponent<Inventory>();
         
         controllerComponent = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         Anim = GetComponent<Animator>();
 
-        if (PlayerPrefs.GetInt("Health") <= 0) {
+        if (PlayerPrefs.GetFloat("Health") <= 0) {
             health = 100;
-            PlayerPrefs.SetFloat("Health", health);
         } else {
-            health = PlayerPrefs.GetInt("Health");
+            health = PlayerPrefs.GetFloat("Health");
         }
         
-        if (PlayerPrefs.GetInt("Armor") <= 0) {
+        if (PlayerPrefs.GetFloat("Armor") <= 0) {
             armor = 100;
-            PlayerPrefs.SetFloat("Armor", armor);
         } else {
-            armor = PlayerPrefs.GetInt("Armor");
+            armor = PlayerPrefs.GetFloat("Armor");
         }
+        SavePlayerData();
     }
 
     private void Update() {
@@ -93,8 +90,7 @@ public class PlayerController : MonoBehaviour {
         controllerComponent.Move(moveSpeed * Time.deltaTime);
     }
 
-    public void AutoJump()
-    {
+    public void AutoJump() {
         moveSpeed.y = 0.5f;
     }
 
@@ -107,20 +103,20 @@ public class PlayerController : MonoBehaviour {
 
     public void Damage(float damage) {
         if (armor != 0) {
-            armor -= damage / 4;
-            health -= damage / 10;
+            armor -= damage / 2;
+            health -= damage / 6;
         } else {
             health -= damage;
         }
 
-        PlayerPrefs.SetFloat("Health", health);
-        PlayerPrefs.SetFloat("Armor", armor);
+        SavePlayerData();
         Menu.PlaySound("Damage");
     }
 
     public void Death() {
         Menu.Loose();
         Inventory.ClearInventory();
+        ClearPlayerData();
         this.enabled = false;
     }
 
@@ -148,12 +144,13 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void LookAtEnemy(GameObject Enemy) {
-        transform.LookAt(Enemy.transform, Vector3.up);
+        var position = Enemy.transform.position;
+        transform.LookAt(new Vector3(position.x, transform.position.y, position.z));
     }
 
     public void Buy(string item, int price) {
         coins -= price;
-        PlayerPrefs.SetInt("Coins", coins);
+        SavePlayerData();
 
         if (!Inventory.full) {
             Inventory.AddToInventory(item);
@@ -162,7 +159,7 @@ public class PlayerController : MonoBehaviour {
 
     public void Fix(string item, int price) {
         coins -= price;
-        PlayerPrefs.SetInt("Coins", coins);
+        SavePlayerData();
 
         switch (item) {
             case "Armor":
@@ -172,9 +169,21 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void HealthPotion() {
-        if (PlayerPrefs.GetInt("Health") <= 75) health += 25;
+        if (PlayerPrefs.GetFloat("Health") <= 75) health += 25;
         else health = 100;
-        PlayerPrefs.SetFloat("Health", health);
+        SavePlayerData();
         Menu.PlaySound("PotionUse");
+    }
+
+    public void SavePlayerData() {
+        PlayerPrefs.SetFloat("Health", health);
+        PlayerPrefs.SetFloat("Armor", armor);
+        PlayerPrefs.SetInt("Coins", coins);
+    }
+
+    public void ClearPlayerData() {
+        PlayerPrefs.DeleteKey("Health");
+        PlayerPrefs.DeleteKey("Armor");
+        PlayerPrefs.DeleteKey("Coins");
     }
 }

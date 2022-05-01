@@ -4,39 +4,85 @@
     <list default="true" id="fc24536f-9dbb-4e68-9124-91a87f4813ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon Adventures/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Ados/Forge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Ados/Forge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Gnome/Shop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Gnome/Shop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Holem/Holem.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Holem/Holem.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Holem/Holem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Holem/Holem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerAtack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerAtack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Sam/Sam.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/Skeleton.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Characters/Skeleton/skeleton.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Characters/Skeleton/skeleton.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Inventory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Inventory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Amulets/Defense Amulet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/Amulets/Defense Amulet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Amulets/Health Amulet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/Amulets/Health Amulet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Amulets/Speed Amulet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/Amulets/Speed Amulet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/Inventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Items.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/Items.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Potions/Health Potion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/Potions/Health Potion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Inventory/Weapon/Default Sword.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inventory/Weapon/Default Sword.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MinecartTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MinecartTrigger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SalovierChestOld.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Chest/Prefabs/SalovierChestOld.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Insruments/Axe.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/Insruments/Axe.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAtack.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAtack.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PostPorcess/Profile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/DungeonGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Maps/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R10.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R11.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R4.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/R9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/R9.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Old.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Old/healthbar_fill.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Old/healthbar_fill.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/cell_selected.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/cell_selected.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/RoomBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/ax.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/ax.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/ax_molot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/ax_molot.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/big_ax.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/big_ax.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/gladius.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/gladius.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/kukri.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/kukri.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/kukri1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/kukri1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/shable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/shable.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/small_sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/small_sword.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/Weapon/sword.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/default_sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/default_sword.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/defence_amulet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/defence_amulet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/health_amulet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/health_amulet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/speed_amulet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Things/speed_amulet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/armorbar_fill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/armorbar_fill.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/bar_end.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/bar_end.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/cell.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/cell.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/cell_selected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/cell_selected.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/checkbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/checkbox.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/coin.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/dropdown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/dropdown.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/dropdown_list.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/dropdown_list.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/faq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/faq.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/health.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/health.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/healthbar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/healthbar.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/healthbar0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/healthbar0.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/healthbar_fill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/healthbar_fill.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/level.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/level.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/play.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/settings.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/shield.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/shield.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/test.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/test.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +99,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Characters/Gnome/Aphaleon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Layout/GridLayoutGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Characters/Gnome/Shop.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -130,7 +177,9 @@
       <workItem from="1648908862830" duration="11922000" />
       <workItem from="1650895100820" duration="17156000" />
       <workItem from="1650975663759" duration="80324000" />
-      <workItem from="1651229722358" duration="26405000" />
+      <workItem from="1651229722358" duration="36695000" />
+      <workItem from="1651345945762" duration="5781000" />
+      <workItem from="1651402359757" duration="19945000" />
     </task>
     <servers />
   </component>

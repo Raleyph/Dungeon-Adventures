@@ -6,54 +6,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class RoomBehaviour : MonoBehaviour
-{
-    public enum roomTypes {
-        Room,
-        Shop,
-        Mine,
-        Quarry,
-        Rails,
-        Prison,
-        Altar,
-        Storehouse,
-        Forge,
-        Chest,
-        Potions
-    };
-    
-    public enum enemyTypes {
-        Skeleton,
-        Holem,
-        Ork,
-        All
-    };
+public class RoomBehaviour : MonoBehaviour {
+    public enum roomTypes { Room, Shop, Mine, Quarry, Rails, Prison, Altar, Storehouse, Forge, Chest, Potions };
+    public enum enemyTypes { Skeleton, Holem, Ork, All };
 
     public roomTypes RoomType = roomTypes.Room;
+    public enemyTypes EnemyType = enemyTypes.Skeleton;
 
     public GameObject[] walls; // 0 - Up 1 - Down 2 - Right 3 - Left
     public GameObject[] doors;
     public GameObject[] Enemy;
     public Transform[] Spawners;
 
-    public enemyTypes EnemyType = enemyTypes.Skeleton;
-    
     public bool haveSpawner;
-
     public float spawnTime;
-    
+
     private GameObject DungeonController;
+    private GameObject Player;
+    private PlayerController Sam;
     private Menu Menu;
 
     private int killedCount = 0;
     private int killedCountMax;
-    
-    private bool isActiveRoom;
     private int SpawnerType;
-    private List<Enemy> EnemiesInRoom = new List<Enemy>();
+
+    private bool isActiveRoom;
+    private bool isDoneRoom;
     
-    private GameObject Player;
-    private PlayerController Sam;
+    private List<Enemy> EnemiesInRoom = new List<Enemy>();
 
     private void Awake() {
         DungeonController = GameObject.FindWithTag("GameController");
@@ -89,6 +69,7 @@ public class RoomBehaviour : MonoBehaviour
             if (Time.timeScale == 1) {
                 if (haveSpawner) {
                     isActiveRoom = true;
+                    isDoneRoom = false;
                     StartCoroutine(Spawn());
                 
                     if (EnemiesInRoom.Count != 0) {
@@ -107,7 +88,7 @@ public class RoomBehaviour : MonoBehaviour
     }
 
     private void Update() {
-        if (killedCount <= killedCountMax) {
+        if (killedCount < killedCountMax) {
             if (isActiveRoom & EnemiesInRoom.Count != 0) {
                 for (int i = 0; i < EnemiesInRoom.Count; i++) {
                     if (!EnemiesInRoom[i]) {
@@ -118,6 +99,7 @@ public class RoomBehaviour : MonoBehaviour
             }
         } else {
             haveSpawner = false;
+            isDoneRoom = true;
         }
     }
     

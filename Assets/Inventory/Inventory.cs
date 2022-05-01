@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour {
     public Cell[] Cells;
     public GameObject Overlay;
     public PlayerController Sam;
+    public Menu Menu;
 
     public bool full = false;
     
@@ -21,7 +22,7 @@ public class Inventory : MonoBehaviour {
     [System.Serializable]
     public class Cell {
         public Image ThisCell;
-        public Image Item;
+        public RawImage Item;
         public bool isActive;
         public bool busy;
 
@@ -29,9 +30,9 @@ public class Inventory : MonoBehaviour {
         public string itemName;
         public float value;
 
-        public void SetCell(string type, string item, Sprite icon, float itemValue) {
+        public void SetCell(string type, string item, Texture2D icon, float itemValue) {
             Item.enabled = true;
-            Item.sprite = icon;
+            Item.texture = icon;
             itemType = type;
             itemName = item;
             value = itemValue;
@@ -40,7 +41,7 @@ public class Inventory : MonoBehaviour {
 
         public void ClearCell() {
             Item.enabled = false;
-            Item.sprite = null;
+            Item.texture = null;
             itemType = null;
             itemName = null;
             value = 0f;
@@ -49,11 +50,13 @@ public class Inventory : MonoBehaviour {
     }
     
     public void InitInventory(bool newLayer) {
+        Sam = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        Menu = GameObject.FindWithTag("GameController").GetComponent<Menu>();
+        
         if (newLayer) {
             AddToInventory("Default Sword");
         }
-        Sam = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        
+
         for (int i = 0; i < Cells.Length; i++) {
             if (Cells[i].isActive) {
                 Cells[i].isActive = false;
@@ -65,7 +68,7 @@ public class Inventory : MonoBehaviour {
     public void AddToInventory(string itemName) {
         string itemType = null;
         string name = null;
-        Sprite icon = null;
+        Texture2D icon = null;
         float value = 0f;
         
         for (int i = 0; i < Things.Length; i++) {
@@ -87,19 +90,17 @@ public class Inventory : MonoBehaviour {
                 }
             }
         }
-        
+
         if (!full) {
-            if (!Cells[0].busy) {
-                Cells[0].SetCell(itemType, name, icon, value);
-            } else {
-                if (!Cells[1].busy) {
-                    Cells[1].SetCell(itemType, name, icon, value);
-                } else {
-                    if (!Cells[2].busy) {
-                        Cells[2].SetCell(itemType, name, icon, value);
-                        full = true;
+            if (!Cells[2].busy) {
+                for (int j = 0; j < Cells.Length; j++) {
+                    if (!Cells[j].busy) {
+                        Cells[j].SetCell(itemType, name, icon, value);
+                        break;
                     }
                 }
+            } else {
+                full = true;
             }
         }
     }
@@ -107,8 +108,12 @@ public class Inventory : MonoBehaviour {
     public void UseItem(int cell) {
         switch (Cells[cell].itemName) {
             case "Health Potion":
-                Sam.HealthPotion();
-                Cells[cell].ClearCell();
+                if (PlayerPrefs.GetFloat("Health") != 100) {
+                    Sam.HealthPotion();
+                    Cells[cell].ClearCell();
+                } else {
+                    Menu.StartCoroutine("ShowWarning", 0);
+                }
                 break;
         }
     }
@@ -149,10 +154,12 @@ public class Inventory : MonoBehaviour {
             Cells[cellIndex].ThisCell.sprite = SelectedCell;
             
 
-            if (Input.GetKeyDown(KeyCode.F)) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
                 for (int g = 0; g < Cells.Length; g++) {
                     if (Cells[g].isActive && Cells[g].busy) {
-                        UseItem(g);
+                        if (Cells[g].itemType == "Potion") {
+                            UseItem(g);
+                        }
                     }
                 }
             }

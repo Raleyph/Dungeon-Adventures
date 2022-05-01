@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerAtack : MonoBehaviour {
     private Inventory IV;
-    private float atackTime;
-    public float startTimeAtack;
+    private float timer;
+    public float TimeBtwAtack;
 
     public Transform AtackPos;
     public LayerMask Enemy;
@@ -20,7 +20,7 @@ public class PlayerAtack : MonoBehaviour {
 
     private void Update() {
         if (Time.timeScale == 1) {
-            if (atackTime >= 0) {
+            if (timer <= 0) {
                 if (Input.GetMouseButtonDown(0)) {
                     Anim.SetTrigger("Atack");
 
@@ -29,10 +29,10 @@ public class PlayerAtack : MonoBehaviour {
                             damage = IV.Cells[i].value;
                         }
                     }
+                    timer = TimeBtwAtack;
                 }
-                atackTime = startTimeAtack;
             } else {
-                atackTime -= Time.deltaTime;
+                timer -= Time.deltaTime;
             }
         }
     }

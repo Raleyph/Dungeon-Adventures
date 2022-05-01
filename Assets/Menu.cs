@@ -33,6 +33,7 @@ public class Menu : MonoBehaviour {
     public Text Level;
     public Text RoomName;
     public Text Coins;
+    public Text Warnings;
     public Slider MasterSlider;
     public Slider MusicSlider;
     public Slider VolumeSlider;
@@ -42,6 +43,8 @@ public class Menu : MonoBehaviour {
     public PostProcessVolume PostProcess;
     public Light SpotLight;
     public GameObject Camera;
+
+    [Header("Other")] public List<string> Warning = new List<string>();
 
     Resolution[] resolutions;
 
@@ -118,7 +121,7 @@ public class Menu : MonoBehaviour {
                 AphaleonMenusClose();
             }
         } else if (Input.GetKeyDown(KeyCode.Space)) {
-            if (MainMenu) {
+            if (MainMenu && !isStarted) {
                 Play();
             }
         }
@@ -260,6 +263,7 @@ public class Menu : MonoBehaviour {
         Cursor.visible = false;
         Time.timeScale = 1;
         
+        GameObject.FindWithTag("Player").GetComponent<PlayerController>().SavePlayerData();
         Destroy(GameObject.FindWithTag("Player"));
         
         var rooms = GameObject.FindGameObjectsWithTag("Room");
@@ -465,6 +469,12 @@ public class Menu : MonoBehaviour {
     
     public void NameRoom(string room) {
         RoomName.text = room;
+    }
+
+    public IEnumerator ShowWarning(int textIndex) {
+        Warnings.text = Warning[textIndex];
+        yield return new WaitForSeconds(3f);
+        Warnings.text = null;
     }
 
     // Ados

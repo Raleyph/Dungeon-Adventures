@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour {
     [SerializeField]
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour {
         Sam = Player.GetComponent<PlayerController>();
         
         Menu = GameObject.FindWithTag("GameController").GetComponent<Menu>();
+        Animator.SetFloat("Random", Random.value);
 
         if (EnemyType == enemyTypes.Skeleton) {
             health = 100;
@@ -54,22 +56,27 @@ public class Enemy : MonoBehaviour {
     private void Update() {
         if (active && !Menu.isLoosed) {
             if (Vector3.Distance(transform.position, Player.transform.position) >= atackDistance) {
+                var position = Player.transform.position;
+                
                 Agent.enabled = true;
-                Agent.SetDestination(Player.transform.position);
+                Agent.SetDestination(position);
+                
                 Animator.SetBool("Move", true);
                 Sam.look = false;
-                transform.LookAt(Player.transform, Vector3.up);
+                transform.LookAt(new Vector3(position.x, transform.position.y, position.z));
             } else {
                 Animator.SetTrigger("Atack");
-            }
-            if (Canvas) {
-                Healthbar.value = health;
             }
         } else {
             Sam.look = false;
             Agent.enabled = false;
             Animator.SetBool("Move", false);
         }
+        
+        if (Canvas) {
+            Healthbar.value = health;
+        }
+        
         if (health <= 0) {
             Destroy(gameObject);
             Sam.coins += 5;
